@@ -1,0 +1,29 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Core()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Core\r\n
+comment1.params=
+comment1.target=void\ create()
+comment1.text=\r\n\ METHOD\:\ create\ and\ initialise\ the\ 3D\ world.\r\n\r\n
+comment2.params=
+comment2.target=void\ destroy()
+comment2.text=\r\n\ METHOD\:\ destroy\ the\ 3D\ world.\r\n\ Although\ there\ is\ a\ garbage-collector\ in\ Java,\ the\ world\ has\ to\ be\ destroyed\ with\ 'destroyWorld'\r\n\ in\ order\ to\ close-down\ your\ simulation-loop\ cleanly.\r\n\r\n
+comment3.params=displayable
+comment3.target=void\ addDisplayObject(Framework.Interfaces.IDisplayObject)
+comment3.text=\r\n\ METHOD\:\ add\ a\ displayable\ to\ the\ world.\r\n\r\n\ @param\ \ \ \ \ \ \ displayable\ -\ a\ displayable\ of\ type\ IDisplayObject\r\n
+comment4.params=displayable
+comment4.target=void\ removeDisplayObject(Framework.Interfaces.IDisplayObject)
+comment4.text=\r\n\ METHOD\:\ remove\ a\ displayable\ from\ the\ world.\r\n\r\n\ @param\ \ \ \ \ \ \ displayable\ -\ the\ displayable\ of\ type\ IDisplayObject\ to\ be\ removed\r\n
+comment5.params=
+comment5.target=void\ update()
+comment5.text=\r\n\ Apply\ all\ updates\ to\ the\ environment.\r\n\ This\ must\ be\ called\ at\ the\ end\ of\ each\ pass\ through\ the\ simulation\ loop.\r\n\r\n
+comment6.params=
+comment6.target=int\ getKey()
+comment6.text=\r\n\ METHOD\:\ get\ keyboard\ input.\r\n\r\n\ @return\ the\ key\ value\ (-1\ if\ no\ key\ has\ been\ pressed\ since\ last\ check).\r\n
+comment7.params=
+comment7.target=int\ getMouseClicked()
+comment7.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ the\ button\ value\:\ 0\=\ left\ button;\ 1\=\ middle\ button;\ 2\=\ right\ button.\r\n
+comment8.params=
+comment8.target=int[]\ getMousePointer()
+comment8.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ \ \ \ \ the\ x,y\ coordinates\ of\ the\ mouse\ pointer\ as\ a\ 2-element\ array\ of\ ints.\r\n
+numComments=9

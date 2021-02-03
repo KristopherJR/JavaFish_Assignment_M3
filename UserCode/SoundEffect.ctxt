@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=f
+comment0.target=SoundEffect(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ SoundEffect\r\n\ \r\n\ @param\ f\ \ \ \ \ the\ file\ path\ to\ the\ sound\ effect\ that\ should\ be\ played.\ EG.\ "sfx/bubble_emit1.wav"\r\n\ \r\n
+comment1.params=
+comment1.target=void\ playSoundEffect()
+comment1.text=\r\n\ METHOD\:\ plays\ the\ instances\ stored\ sound\ effect\ when\ called.\r\n\r\n@return\ \ \ void\r\n
+numComments=2

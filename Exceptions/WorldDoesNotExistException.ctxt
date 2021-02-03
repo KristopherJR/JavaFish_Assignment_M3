@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=message
+comment0.target=WorldDoesNotExistException(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ WorldDoesNotExistException\r\n\ \r\n\ @param\ message\ a\ String\ for\ the\ 'thrower'\ to\ provide\ extra\ information\ about\ the\ exception\r\n
+numComments=1

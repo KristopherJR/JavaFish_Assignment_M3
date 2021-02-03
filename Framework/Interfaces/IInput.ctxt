@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=int\ getKey()
+comment0.text=\r\n\ METHOD\:\ get\ keyboard\ input.\r\n\r\n\ @return\ the\ key\ value\ (-1\ if\ no\ key\ has\ been\ pressed\ since\ last\ check).\r\n
+comment1.params=
+comment1.target=int\ getMouseClicked()
+comment1.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ the\ button\ value\:\ 0\=\ left\ button;\ 1\=\ middle\ button;\ 2\=\ right\ button.\r\n
+comment2.params=
+comment2.target=int[]\ getMousePointer()
+comment2.text=\r\n\ METHOD\:\ check\ if\ a\ mouse\ button\ has\ been\ clicked.\r\n\r\n\ @return\ the\ pointer\ value\ as\ a\ 2-element\ array\ of\ ints\:\ return[0]\=X,\ return[1]\=Y.\r\n
+numComments=3
