@@ -10,15 +10,13 @@ import java.util.List;
  * Bubbles contains all of the code needed to represent a Bubble to be placed in the Aquarium.
  * 
  * @author Kristopher Randle 
- * @version 29-01-2021
+ * @version 05-02-2021 v0.2
  */
 public class Bubble implements IUpdatable
 {
     //Instance Variables:
     // DECLARE a public static final double, call it SCREEN_HEIGHT and set it to 7.0:
     public static final double SCREEN_HEIGHT = 7.0;
-    // DECLARE a private double, call it floatSpeed:
-    private double floatSpeed;
     // DECLARE a 'DisplayObject', call it 'bubble':
     private DisplayObject bubble;
     // DECLARE a reference to the instance of 'List<SoundEffect>', call it 'soundEffects'. Used to store all objects of type 'SoundEffect':
@@ -32,17 +30,12 @@ public class Bubble implements IUpdatable
      */
     public Bubble(double x, double y, double scale)
     {
+        //INITALISE 'bubble' with appropriate parameters:
         bubble = new DisplayObject("sphere", "textures/javaFish/Bubble.png", scale);
-        
-      
-
-        floatSpeed = 0.005;
-        
-        bubble.position(3.0,3.0,0.1);
-        bubble.orientation(0,270,0);
-        
-        //SET 'velocityY' to 'floatSpeed' as default:
-        bubble.setVelocityY(floatSpeed);
+        //SET the Bubbles position to the parameters provided on creation:
+        bubble.position(x,y,1.0);
+        //SET 'velocityY' to 0.005:
+        bubble.setVelocityY(0.005);
     }
     
     /**
@@ -73,7 +66,6 @@ public class Bubble implements IUpdatable
     
     /**
      * METHOD: set the initial position of the Bubble in the aquarium - method from Marc Price, edited by Kristoper Randle.
-     * 
      * 
      * @param  x    the rqd position along the x axis
      * @param  y    the rqd position along the y axis

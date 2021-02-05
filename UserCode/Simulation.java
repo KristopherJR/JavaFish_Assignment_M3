@@ -31,8 +31,8 @@ public class Simulation
     // DECLARE a boolean that signals when the simulation loop should be exited:
     private boolean endSim = false;
     
-    // DECLARE a List to store object of type 'IUpdatable', call it '_pets':
-    private List<IUpdatable> _pets;
+    // DECLARE a List to store object of type 'IUpdatable', call it '_entities':
+    private List<IUpdatable> _entities;
     
     // DECLARE an int called jNumber, used for specifying the number of JavaFish to be added to the scene:
     private int jNumber;
@@ -63,7 +63,7 @@ public class Simulation
         _input = (IInput) _world;
         
         // _pets:
-        _pets = new ArrayList<IUpdatable>();
+        _entities = new ArrayList<IUpdatable>();
         
         jNumber = 3; //INITIALISE jNumber, this specifies that 3 'JavaFish' objects will be added to the aquarium.
         oNumber = 3; //INITIALISE oNumber, this specifies that 3 'OrangeFish' objects will be added to the aquarium.
@@ -77,20 +77,20 @@ public class Simulation
      */
     public void populate()
     {
-        //CREATE a specific number of JavaFish in a for loop using jNumber. Add them to the _javaFish List, Then add the bubbles to the _displayObjects List:
+        //CREATE a specific number of JavaFish in a for loop using jNumber. Add them to the _javaFish List, Then add the bubbles to the _entities List:
         for(int i = 0; i < jNumber; i++)
         {
-            _pets.add(new JavaFish());
+            _entities.add(new JavaFish());
         }
-        //CREATE a specific number of SeaHorses in a for loop using sNumber. Add them to the _displayObjects List.
+        //CREATE a specific number of SeaHorses in a for loop using sNumber. Add them to the _entities List.
         for(int i = 0; i < oNumber; i++)
         {
-            _pets.add(new OrangeFish());
+            _entities.add(new OrangeFish());
         }
-        //CREATE a specific number of SeaHorses in a for loop using uNumber. Add them to the _displayObjects List.
+        //CREATE a specific number of SeaHorses in a for loop using uNumber. Add them to the _entities List.
         for(int i = 0; i < uNumber; i++)
         {
-            _pets.add(new Urchin());
+            _entities.add(new Urchin());
         }
     }
     
@@ -98,15 +98,20 @@ public class Simulation
     {
         //GET the mouse button that was clicked:
         int _mouseButtonClicked = ((IInput)_world).getMouseClicked();
-        //GET the location of the mouse pointer:
-        int[] _mPLocation = ((IInput)_world).getMousePointer();
         //CHECK if the mouse button clicked was the left mouse button:
         if(_mouseButtonClicked == 0)
         {
+            //GET the location of the mouse pointer:
+            int[] _mPLocation = ((IInput)_world).getMousePointer();
+            //CREATE a double[] to store the _mPLocation in a format that matches the aquariums co-ordinate system:
+            double[]_mPLD = new double[2];
+            //ALTER the x by factor 0.0077 and y by factor 0.0080 due to discrepancies in the co-ordinates system:
+            _mPLD[0] = _mPLocation[0] * 0.0077;
+            _mPLD[1] = _mPLocation[1] * 0.0080;
             //IF left button clicked, create a new 'Bubble' at the mouse pointer location:
-            Bubble b = new Bubble(_mPLocation[0],_mPLocation[1],0.15);
-            //ADD the Bubble to the '_pets' List:
-            _pets.add(b);
+            IUpdatable b = new Bubble(_mPLD[0],_mPLD[1],0.15);
+            //ADD the Bubble to the '_entities' List:
+            _entities.add(b);
             //ADD the DisplayObject stored in the Bubble object to the world:
             _world.addDisplayObject(b.getDisplayObject());
         }
@@ -124,9 +129,9 @@ public class Simulation
         try
         {
             // ADD Objects to 3D world?:
-            for(int i = 0; i < _pets.size(); i++)
+            for(int i = 0; i < _entities.size(); i++)
             {
-                _world.addDisplayObject(((IUpdatable)_pets.get(i)).getDisplayObject());
+                _world.addDisplayObject(((IUpdatable)_entities.get(i)).getDisplayObject());
             }
             
             // Start simulation loop:
@@ -141,9 +146,9 @@ public class Simulation
                 }
                         
                 // UPDATE Objects in 3D world:
-                for(int i = 0; i < _pets.size(); i++)
+                for(int i = 0; i < _entities.size(); i++)
                 {
-                    _pets.get(i).update();
+                    _entities.get(i).update();
                 }
                 
                 CreateBubble();
