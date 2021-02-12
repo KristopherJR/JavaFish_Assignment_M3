@@ -34,6 +34,9 @@ public class Simulation
     // DECLARE a List to store object of type 'IUpdatable', call it '_entities':
     private List<IUpdatable> _entities;
     
+    // DECLARE an ITokenFactory, call it '_tokenFactory':
+    private ITokenFactory _tokenFactory;
+    
     // DECLARE an int called jNumber, used for specifying the number of JavaFish to be added to the scene:
     private int jNumber;
 
@@ -62,8 +65,11 @@ public class Simulation
         // _input:
         _input = (IInput) _world;
         
-        // _pets:
+        // _entities:
         _entities = new ArrayList<IUpdatable>();
+        
+        // _tokenFactory
+        _tokenFactory = new TokenFactory();
         
         jNumber = 3; //INITIALISE jNumber, this specifies that 3 'JavaFish' objects will be added to the aquarium.
         oNumber = 3; //INITIALISE oNumber, this specifies that 3 'OrangeFish' objects will be added to the aquarium.
@@ -77,20 +83,30 @@ public class Simulation
      */
     public void populate()
     {
-        //CREATE a specific number of JavaFish in a for loop using jNumber. Add them to the _javaFish List, Then add the bubbles to the _entities List:
-        for(int i = 0; i < jNumber; i++)
+        try
         {
-            _entities.add(new JavaFish());
+            //CREATE a specific number of JavaFish in a for loop using jNumber. Add them to the _javaFish List, Then add the bubbles to the _entities List:
+            for(int i = 0; i < jNumber; i++)
+            {
+                // RETURN the new instance of IUpdatable by calling the 'create()' method in the '_tokenFactory':
+                _entities.add(_tokenFactory.create(JavaFish.class));
+            }
+            //CREATE a specific number of OrangeFish in a for loop using sNumber. Add them to the _entities List.
+            for(int i = 0; i < oNumber; i++)
+            {
+                // RETURN the new instance of IUpdatable by calling the 'create()' method in the '_tokenFactory':
+                _entities.add(_tokenFactory.create(OrangeFish.class));
+            }
+            //CREATE a specific number of Urchins in a for loop using uNumber. Add them to the _entities List.
+            for(int i = 0; i < uNumber; i++)
+            {
+                // RETURN the new instance of IUpdatable by calling the 'create()' method in the '_tokenFactory':
+                _entities.add(_tokenFactory.create(Urchin.class));
+            }
         }
-        //CREATE a specific number of SeaHorses in a for loop using sNumber. Add them to the _entities List.
-        for(int i = 0; i < oNumber; i++)
+        catch(Exception e)
         {
-            _entities.add(new OrangeFish());
-        }
-        //CREATE a specific number of SeaHorses in a for loop using uNumber. Add them to the _entities List.
-        for(int i = 0; i < uNumber; i++)
-        {
-            _entities.add(new Urchin());
+            //LOL
         }
     }
     

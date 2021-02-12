@@ -126,6 +126,11 @@ public class DisplayObject implements IDisplayObject, IUpdatable
         this.x += velocityX;
         this.y += velocityY;
     }
+    
+    public IDisplayObject getDisplayObject()
+    {
+        return this;
+    }
     // -------------------------- ACCESSORS ----------------------
     public double getScale()
     {

@@ -24,5 +24,6 @@ public interface IDisplayObject
      * @param zOrientation double giving the new orientation about z axis.
      */
     void orientation(double xOrientation, double yOrientation, double zOrientation);
-
+    
+    
 }
