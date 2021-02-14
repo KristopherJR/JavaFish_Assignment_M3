@@ -5,38 +5,58 @@ import Framework.Implementations.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
- * Represents an 'OrangeFish'. This is an object that can be placed in the aquarium and swim around.
+ * Represents a 'Piranha'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 0.2 - 29-01-2021
+ * @version 14-02-2021, 0.3
  */
-public class OrangeFish implements IUpdatable
+public class Piranha implements IUpdatable
 {
-   // DECLARE a 'DisplayObject', call it '_orangeFish':
-   private DisplayObject _orangeFish;
+   // DECLARE a private static final String, call it 'MODEL' and set it to an appropriate model:
+   private static final String MODEL = "models/billboard/billboard.obj";
+   // DECLARE a private String, call it '_texture':
+   private String _texture;
+   
    // DECLARE the minimum speed a fish can move as specified by the client brief:
    private static final double MIN_SPEED = 0.005;
    // DECLARE the maximum speed a fish can move as specified by the client brief:
    private static final double MAX_SPEED = 0.05;
-   // DECLARE a public static final double, call it SCREEN_HEIGHT and set it to 7.0:
-   public static final double SCREEN_HEIGHT = 7.0;
-   // DECLARE a public static final double, call it SCREEN_WIDTH and set it to 8.5:
-   public static final double SCREEN_WIDTH = 8.0;
+   // DECLARE a private static final double, call it SCREEN_HEIGHT and set it to 7.0:
+   private static final double SCREEN_HEIGHT = 7.0;
+   // DECLARE a private static final double, call it SCREEN_WIDTH and set it to 8.5:
+   private static final double SCREEN_WIDTH = 8.0;
+   
+   // DECLARE an instance of 'Random', call it '_random':
+   private Random _random;
+   // DECLARE a 'DisplayObject', call it '_piranha':
+   private DisplayObject _piranha;
    // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_soundEffects'. Used to store all objects of type 'SoundEffect':
    private List<SoundEffect> _soundEffects;
    /**
-    * Constructor for objects of class orangeFish
+    * Constructor for objects of class Piranha
     * 
-    * @param s     the scale of the OrangeFish.
+    * @param s     the scale of the Piranha.
     * @return      void
     */
-   public OrangeFish()
+   public Piranha()
    {
-       //INITIALIZE 'orangeFish' as a 'DisplayObject', storing it as an 'IDisplayObject':
-       _orangeFish = new DisplayObject("models/billboard/billboard.obj", "textures/javaFish/Orange_Fish.png", Math.random() * (0.45 - 0.225) + 0.225);
-       _orangeFish.orientation(0,270,0);
+       // INITIALIZE the random number generator:
+       _random = new Random();
+       // INITIALIZE the '_texture' String, give it a 50/50 chance of being a Green or Red Piranha:
+       if(_random.nextInt(2) == 0)
+       {
+           _texture = "textures/javaFish/PiranhaRed.png";
+       }
+       else
+       {
+           _texture = "textures/javaFish/PiranhaGreen.png";
+       }
+       // INITIALIZE '_piranha' as a 'DisplayObject':
+       _piranha = new DisplayObject(MODEL, _texture, Math.random() * (0.45 - 0.225) + 0.225);
+       _piranha.orientation(0,270,0);
        
        this.CreateSoundEffects(); 
        this.GenerateRandomPosition();
@@ -45,7 +65,7 @@ public class OrangeFish implements IUpdatable
     
    /**
     * METHOD: Initalises and populates the List '_soundEffects' with an appropriate selection of .wav files.
-    *         Any 'OrangeFish' can play any one of these 'SoundEffect's at a time.
+    *         Any 'Piranha' can play any one of these 'SoundEffect's at a time.
     * 
     * @return      void 
     */
@@ -70,7 +90,7 @@ public class OrangeFish implements IUpdatable
    }
 
    /**
-    * METHOD: When called, gives the 'OrangeFish' a 1 in 900 chance of playing a random bubble sound:
+    * METHOD: When called, gives the 'Piranha' a 1 in 900 chance of playing a random bubble sound:
     */
    public void MakeSound()
    {
@@ -97,28 +117,28 @@ public class OrangeFish implements IUpdatable
     
    public void GenerateRandomSpeed()
    {
-       // GENERATE a random X velocity for the JavaFish:
-       _orangeFish.setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
+       // GENERATE a random X velocity for the '_piranha':
+       _piranha.setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
    }
     
    public void GenerateRandomPosition()
    {
-       // SET the position of 'javaFish' to a random location (x,y,z) within the bounds of the aquarium:
-       _orangeFish.setPosition((Math.random() * (SCREEN_WIDTH - 1) + 1),(Math.random() * (SCREEN_HEIGHT - 1) + 1),1.0);
+       // SET the position of '_piranha' to a random location (x,y,z) within the bounds of the aquarium:
+       _piranha.setPosition((Math.random() * (SCREEN_WIDTH - 1) + 1),(Math.random() * (SCREEN_HEIGHT - 1) + 1),1.0);
    }
     
    public void update()
    {
        //CHECK the DisplayObject is within the aquarium:
-       _orangeFish.inBounds();
+       _piranha.inBounds();
        
        this.MakeSound();
        //MOVE the DisplayObject:
-       _orangeFish.update();
+       _piranha.update();
    }
     
    public IDisplayObject getDisplayObject()
    {
-       return _orangeFish;
+       return _piranha;
    }
 }

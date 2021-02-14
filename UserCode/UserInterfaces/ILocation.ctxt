@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=x
+comment0.target=void\ setX(double)
+comment0.text=\r\n\ Sets\ the\ X\ co-ordinate\ of\ this\ object.\r\n\ \r\n\ @param\ x\ \ \ \ \ The\ new\ location\ for\ this\ object\ on\ its\ X\ axis.\r\n\ @return\ void\r\n
+comment1.params=y
+comment1.target=void\ setY(double)
+comment1.text=\r\n\ Sets\ the\ Y\ co-ordinate\ of\ this\ object.\r\n\ \r\n\ @param\ y\ \ \ \ \ The\ new\ location\ for\ this\ object\ on\ its\ Y\ axis.\r\n\ @return\ void\r\n
+comment2.params=z
+comment2.target=void\ setZ(double)
+comment2.text=\r\n\ Sets\ the\ Z\ co-ordinate\ of\ this\ object.\r\n\ \r\n\ @param\ z\ \ \ \ \ The\ new\ location\ for\ this\ object\ on\ its\ Z\ axis.\r\n\ @return\ void\r\n
+comment3.params=
+comment3.target=void\ GenerateRandomPosition()
+comment3.text=\r\n\ Generates\ a\ random\ position\ for\ this\ object.\r\n\ \r\n\ @return\ void\r\n
+comment4.params=
+comment4.target=double\ getX()
+comment4.text=\r\n\ Gets\ the\ X\ co-ordinate\ of\ this\ object.\r\n\ \r\n\ @return\ \ \ \ \ \ The\ X\ co-ordinate\ of\ this\ object\ as\ a\ double.\r\n
+comment5.params=
+comment5.target=double\ getY()
+comment5.text=\r\n\ Gets\ the\ Y\ co-ordinate\ of\ this\ object.\r\n\ \r\n\ @return\ \ \ \ \ \ The\ Y\ co-ordinate\ of\ this\ object\ as\ a\ double.\r\n
+comment6.params=
+comment6.target=double\ getZ()
+comment6.text=\r\n\ Gets\ the\ Z\ co-ordinate\ of\ this\ object.\r\n\ \r\n\ @return\ \ \ \ \ \ The\ Z\ co-ordinate\ of\ this\ object\ as\ a\ double.\r\n
+numComments=7

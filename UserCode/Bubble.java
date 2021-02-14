@@ -10,17 +10,19 @@ import java.util.List;
  * Bubbles contains all of the code needed to represent a Bubble to be placed in the Aquarium.
  * 
  * @author Kristopher Randle 
- * @version 05-02-2021 v0.2
+ * @version 14-02-2021, 0.3
  */
 public class Bubble implements IUpdatable
 {
-    //Instance Variables:
-    // DECLARE a public static final double, call it SCREEN_HEIGHT and set it to 7.0:
-    public static final double SCREEN_HEIGHT = 7.0;
-    // DECLARE a 'DisplayObject', call it 'bubble':
-    private DisplayObject bubble;
-    // DECLARE a reference to the instance of 'List<SoundEffect>', call it 'soundEffects'. Used to store all objects of type 'SoundEffect':
-    private List<SoundEffect> soundEffects;
+    // DECLARE a private static final String, call it 'MODEL' and set it to an appropriate model:
+    private static final String MODEL = "sphere";
+    // DECLARE a private static final String, call it 'TEXTURE' and set it to the filepath of an appropriate image:
+    private static final String TEXTURE = "textures/javaFish/Bubble.png";
+    
+    // DECLARE a 'DisplayObject', call it '_bubble':
+    private DisplayObject _bubble;
+    // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_soundEffects'. Used to store all objects of type 'SoundEffect':
+    private List<SoundEffect> _soundEffects;
     /**
      * Constructor for objects of class Bubble
      * 
@@ -30,12 +32,12 @@ public class Bubble implements IUpdatable
      */
     public Bubble(double x, double y, double scale)
     {
-        //INITALISE 'bubble' with appropriate parameters:
-        bubble = new DisplayObject("sphere", "textures/javaFish/Bubble.png", scale);
+        //INITALISE '_bubble' with appropriate parameters:
+        _bubble = new DisplayObject(MODEL, TEXTURE, scale);
         //SET the Bubbles position to the parameters provided on creation:
-        bubble.position(x,y,1.0);
+        _bubble.position(x,y,1.0);
         //SET 'velocityY' to 0.005:
-        bubble.setVelocityY(0.005);
+        _bubble.setVelocityY(0.005);
     }
     
     /**
@@ -46,8 +48,8 @@ public class Bubble implements IUpdatable
      */
     public void createSoundEffects()
     {
-        //INITIALISE the List 'soundEffects' as an 'ArrayList': 
-        soundEffects = new ArrayList<SoundEffect>();
+        //INITIALISE the List '_soundEffects' as an 'ArrayList': 
+        _soundEffects = new ArrayList<SoundEffect>();
         
         //INITIALISE all sound effects as type 'SoundEffect':
         SoundEffect bubble_emit1 = new SoundEffect("sfx/bubble_emit1.wav");
@@ -56,12 +58,12 @@ public class Bubble implements IUpdatable
         SoundEffect bubble_emit4 = new SoundEffect("sfx/bubble_emit4.wav"); 
         SoundEffect bubble_emit5 = new SoundEffect("sfx/bubble_emit5.wav"); 
         
-        //ADD each 'SoundEffect' to the _bubbleSoundEffects List:
-        soundEffects.add(bubble_emit1);
-        soundEffects.add(bubble_emit2);
-        soundEffects.add(bubble_emit3);
-        soundEffects.add(bubble_emit4);
-        soundEffects.add(bubble_emit5);
+        //ADD each 'SoundEffect' to the _soundEffects List:
+        _soundEffects.add(bubble_emit1);
+        _soundEffects.add(bubble_emit2);
+        _soundEffects.add(bubble_emit3);
+        _soundEffects.add(bubble_emit4);
+        _soundEffects.add(bubble_emit5);
     }
     
     /**
@@ -75,8 +77,8 @@ public class Bubble implements IUpdatable
     protected void setPosition(double x, double y)
     {
         // SET the position of this Bubble to the x,y provided:
-        bubble.setX(x);
-        bubble.setY(y);
+        _bubble.setX(x);
+        _bubble.setY(y);
     }
     
     /**
@@ -86,11 +88,11 @@ public class Bubble implements IUpdatable
      */
     public void update()
     {
-        bubble.update();
+        _bubble.update();
     }
     
     public IDisplayObject getDisplayObject()
     {
-        return bubble;
+        return _bubble;
     }
 }

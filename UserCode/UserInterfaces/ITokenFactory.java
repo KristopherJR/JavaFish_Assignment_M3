@@ -1,6 +1,6 @@
-package Framework.Interfaces;
+package UserCode.UserInterfaces;
 
-
+import Framework.Interfaces.*;
 /**
  * ITokenFactory interface - all implementations can create instances of IUpdatable Tokens to be placed in the aquarium
  * 

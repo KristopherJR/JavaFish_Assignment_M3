@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.params=
-comment0.target=OrangeFish()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ orangeFish\r\n\ \r\n\ @param\ s\ \ \ \ \ the\ scale\ of\ the\ OrangeFish.\r\n\ @return\ \ \ \ \ \ void\r\n
+comment0.target=Piranha()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Piranha\r\n\ \r\n\ @param\ s\ \ \ \ \ the\ scale\ of\ the\ Piranha.\r\n\ @return\ \ \ \ \ \ void\r\n
 comment1.params=
 comment1.target=void\ CreateSoundEffects()
-comment1.text=\r\n\ METHOD\:\ Initalises\ and\ populates\ the\ List\ '_soundEffects'\ with\ an\ appropriate\ selection\ of\ .wav\ files.\r\n\ \ \ \ \ \ \ \ \ Any\ 'OrangeFish'\ can\ play\ any\ one\ of\ these\ 'SoundEffect's\ at\ a\ time.\r\n\ \r\n\ @return\ \ \ \ \ \ void\ \r\n
+comment1.text=\r\n\ METHOD\:\ Initalises\ and\ populates\ the\ List\ '_soundEffects'\ with\ an\ appropriate\ selection\ of\ .wav\ files.\r\n\ \ \ \ \ \ \ \ \ Any\ 'Piranha'\ can\ play\ any\ one\ of\ these\ 'SoundEffect's\ at\ a\ time.\r\n\ \r\n\ @return\ \ \ \ \ \ void\ \r\n
 comment2.params=
 comment2.target=void\ MakeSound()
-comment2.text=\r\n\ METHOD\:\ When\ called,\ gives\ the\ 'OrangeFish'\ a\ 1\ in\ 900\ chance\ of\ playing\ a\ random\ bubble\ sound\:\r\n
+comment2.text=\r\n\ METHOD\:\ When\ called,\ gives\ the\ 'Piranha'\ a\ 1\ in\ 900\ chance\ of\ playing\ a\ random\ bubble\ sound\:\r\n
 comment3.params=
 comment3.target=void\ playRandomSoundEffect()
 comment3.text=\r\n\ METHOD\:\ This\ method\ will\ play\ a\ random\ sound\ effect\ everytime\ it\ is\ called\ from\ the\ '_soundEffects'\ List.\r\n\ \r\n\ @return\ void\r\n

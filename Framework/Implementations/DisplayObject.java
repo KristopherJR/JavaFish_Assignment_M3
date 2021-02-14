@@ -147,6 +147,11 @@ public class DisplayObject implements IDisplayObject, IUpdatable
         return y;
     }
     
+    public double getZ()
+    {
+        return z;
+    }
+    
     public double getVelocityX()
     {
         return velocityX;
@@ -178,6 +183,11 @@ public class DisplayObject implements IDisplayObject, IUpdatable
     public void setY(double y)
     {
         this.y = y;
+    }
+    
+    public void setZ(double z)
+    {
+        this.z = z;
     }
     
     public void setVelocityX(double vx)

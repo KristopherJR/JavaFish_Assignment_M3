@@ -9,6 +9,7 @@ package UserCode;
 import env3d.Env;
 import Framework.Interfaces.*;
 import Framework.Implementations.*;
+import UserCode.UserInterfaces.*;
 import Exceptions.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +41,14 @@ public class Simulation
     // DECLARE an int called jNumber, used for specifying the number of JavaFish to be added to the scene:
     private int jNumber;
 
-    // DECLARE an int called sNumber, used for specifying the number of OrangeFish to be added to the scene:
-    private int oNumber;
+    // DECLARE an int called pNumber, used for specifying the number of Piranha to be added to the scene:
+    private int pNumber;
     
     // DECLARE an int called uNumber, used for specifying the number of Urchins to be added to the scene:
     private int uNumber;
+    
+    // DECLARE an int called sNumber, used for specifying the number of SeaHorse to be added to the scene:
+    private int sNumber;
 
     public static void main(String args[])
     {
@@ -71,13 +75,14 @@ public class Simulation
         // _tokenFactory
         _tokenFactory = new TokenFactory();
         
-        jNumber = 3; //INITIALISE jNumber, this specifies that 3 'JavaFish' objects will be added to the aquarium.
-        oNumber = 3; //INITIALISE oNumber, this specifies that 3 'OrangeFish' objects will be added to the aquarium.
+        jNumber = 10; //INITIALISE jNumber, this specifies that 3 'JavaFish' objects will be added to the aquarium.
+        pNumber = 3; //INITIALISE pNumber, this specifies that 3 'Piranha' objects will be added to the aquarium.
         uNumber = 3; //INITIALISE uNumber, this specifies that 3 'Urchin' objects will be added to the aquarium.
+        sNumber = 3; //INITIALISE uNumber, this specifies that 3 'SeaHorse' objects will be added to the aquarium.
     }
     
     /**
-     * METHOD: This method will populate the '_pets' array so that they can be added to the '_world' later.
+     * METHOD: This method will populate the '_entities' list so that they can be added to the '_world' later.
      * 
      * @Author Kristopher Randle
      */
@@ -91,17 +96,23 @@ public class Simulation
                 // RETURN the new instance of IUpdatable by calling the 'create()' method in the '_tokenFactory':
                 _entities.add(_tokenFactory.create(JavaFish.class));
             }
-            //CREATE a specific number of OrangeFish in a for loop using sNumber. Add them to the _entities List.
-            for(int i = 0; i < oNumber; i++)
+            //CREATE a specific number of Piranha in a for loop using sNumber. Add them to the _entities List.
+            for(int i = 0; i < pNumber; i++)
             {
                 // RETURN the new instance of IUpdatable by calling the 'create()' method in the '_tokenFactory':
-                _entities.add(_tokenFactory.create(OrangeFish.class));
+                _entities.add(_tokenFactory.create(Piranha.class));
             }
             //CREATE a specific number of Urchins in a for loop using uNumber. Add them to the _entities List.
             for(int i = 0; i < uNumber; i++)
             {
                 // RETURN the new instance of IUpdatable by calling the 'create()' method in the '_tokenFactory':
                 _entities.add(_tokenFactory.create(Urchin.class));
+            }
+            //CREATE a specific number of SeaHorses in a for loop using sNumber. Add them to the _entities List.
+            for(int i = 0; i < uNumber; i++)
+            {
+                // RETURN the new instance of IUpdatable by calling the 'create()' method in the '_tokenFactory':
+                _entities.add(_tokenFactory.create(SeaHorse.class));
             }
         }
         catch(Exception e)

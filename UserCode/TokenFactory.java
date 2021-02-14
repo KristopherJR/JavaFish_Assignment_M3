@@ -1,6 +1,7 @@
 package UserCode;
 
 import Framework.Interfaces.*;
+import UserCode.UserInterfaces.*;
 
 /**
  * ITokenFactory interface - all implementations can create instances of IUpdatable Tokens to be placed in the aquarium
@@ -11,9 +12,7 @@ import Framework.Interfaces.*;
  * @version 0.1, 12-02-2021
  */
 public class TokenFactory implements ITokenFactory
-{
-    // instance variables
-    
+{    
     /**
      * Constructor for objects of class TokenFactory
      */
