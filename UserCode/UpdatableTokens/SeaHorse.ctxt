@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SeaHorse()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ SeaHorse.\r\n\ \r\n\ @return\ \ \ \ \ \ void\r\n
+comment1.params=
+comment1.target=void\ GenerateRandomSpeed()
+comment2.params=world
+comment2.target=void\ injectDisplayable(Framework.Interfaces.IWorld)
+comment2.text=\r\n\ METHOD\:\ Inject\ the\ IDisplayable\ by\ passing\ its\ contained\ DisplayObject\ into\ the\ reference\ to\ IWorld\ provided.\r\n\ -\ Must\ be\ done\ after\ World\ has\ been\ created.\r\n\ \r\n\ This\ helps\ preserve\ an\ objects\ encapulsation\ as\ it\ allows\ the\ object\ to\ be\ injected\ into\ the\ game\ world,\ rather\ than\ returning\ its\ private\r\n\ DisplayObject.\r\n\r\n@param\ world\ IWorld\ reference\ representing\ the\ 3D\ world.\r\n
+comment3.params=
+comment3.target=void\ update()
+comment3.text=\r\n\ METHOD\:\ called\ on\ each\ pass\ of\ the\ Simulation.\ Check\ the\ object\ is\ in\ the\ boundaries\ of\ the\ aquarium\ and\ move\ it.\r\n
+numComments=4

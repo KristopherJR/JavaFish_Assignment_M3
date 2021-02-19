@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=FishFood()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ FishFood\r\n
+comment1.params=x\ y\ z
+comment1.target=void\ setDisplayObjectPosition(double,\ double,\ double)
+comment1.text=\r\n\ METHOD\:\ Set\ the\ DisplayObjects\ position\ contained\ in\ this\ class\ by\ calling\ it's\ ILocation\ methods.\r\n\ Pass\ in\ the\ provided\ x,y,z\ values.\r\n
+comment2.params=world
+comment2.target=void\ injectDisplayable(Framework.Interfaces.IWorld)
+comment2.text=\r\n\ METHOD\:\ Inject\ the\ IDisplayable\ by\ passing\ its\ contained\ DisplayObject\ into\ the\ reference\ to\ IWorld\ provided.\r\n\ -\ Must\ be\ done\ after\ World\ has\ been\ created.\r\n\ \r\n\ This\ helps\ preserve\ an\ objects\ encapulsation\ as\ it\ allows\ the\ object\ to\ be\ injected\ into\ the\ game\ world,\ rather\ than\ returning\ its\ private\r\n\ DisplayObject.\r\n\r\n@param\ world\ IWorld\ reference\ representing\ the\ 3D\ world.\r\n
+comment3.params=
+comment3.target=void\ update()
+comment3.text=\r\n\ METHOD\:\ called\ on\ each\ pass\ of\ the\ Simulation,\ calls\ the\ update\ method\ in\ DisplayObject.\ Stops\ FishFood\ from\ going\ past\ the\ aquarium\ floor\ and\ makes\ it\ rest\r\n\ at\ the\ bottom\ of\ the\ aquarium\r\n\ \r\n\ @return\ void\r\n
+numComments=4

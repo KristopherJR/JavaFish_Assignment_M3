@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MouseHandler()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ MouseHandler\r\n
+comment1.params=inputCapture
+comment1.target=void\ Initialise(Framework.Interfaces.IInput)
+comment1.text=\r\n\ METHOD\:\ initialise\ the\ handler\ by\ giving\ it\ a\ reference\ to\ the\ input\ capture\ source.\r\n\ \r\n\ @param\ inputCapture\ the\ input\ capture\ source\ (normally\ via\ Env3D)\r\n
+comment2.params=l
+comment2.target=void\ subscribe(UserInterfaces.IInputListener)
+comment2.text=\r\n\ METHOD\:\ Subscribe\ a\ new\ listener\ for\ input\ events.\r\n\ \r\n\ @param\ l\ \ \ \ \ a\ reference\ to\ the\ listener\ that\ is\ being\ subscribed\r\n
+comment3.params=l
+comment3.target=void\ unsubscribe(UserInterfaces.IInputListener)
+comment3.text=\r\n\ METHOD\:\ unsubscribe\ a\ listener.\r\n\ \r\n\ @param\ l\ \ \ \ \ a\ reference\ to\ the\ listener\ that\ is\ being\ unsubscribed\r\n
+comment4.params=
+comment4.target=void\ update()
+comment4.text=\r\n\ METHOD\:\ update\ the\ Mouse\ state\r\n
+numComments=5

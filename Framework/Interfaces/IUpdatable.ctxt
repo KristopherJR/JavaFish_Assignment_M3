@@ -2,6 +2,4 @@
 comment0.params=
 comment0.target=void\ update()
 comment0.text=\r\n\ METHOD\:\ change\ to\ IUpdatable\ for\ next\ frame\r\n
-comment1.params=
-comment1.target=IDisplayObject\ getDisplayObject()
-numComments=2
+numComments=1

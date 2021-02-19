@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=inputCapture
+comment0.target=void\ Initialise(Framework.Interfaces.IInput)
+comment0.text=\r\n\ METHOD\:\ initialise\ the\ handler\ by\ giving\ it\ a\ reference\ to\ the\ input\ capture\ source.\r\n\ \r\n\ @param\ inputCapture\ the\ input\ capture\ source\ (normally\ via\ Env3D)\r\n
+numComments=1

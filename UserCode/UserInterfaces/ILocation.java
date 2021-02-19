@@ -1,8 +1,8 @@
 package UserCode.UserInterfaces;
 
-
 /**
- * ILocation interface provides methods that allows the manipulation of an objects location.
+ * ILocation interface provides methods that allows the manipulation of an objects location. Can be used for an object in a 3D environment that utilizes the
+ * X,Y,Z axis.
  * 
  * @author Kristopher Randle 
  * @version 14-02-2021, 0.1

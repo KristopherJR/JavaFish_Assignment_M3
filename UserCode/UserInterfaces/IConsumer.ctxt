@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=victim
+comment0.target=void\ consume(Framework.Interfaces.IDisplayObject)
+comment0.text=\r\n\ 'Consumes'\ an\ IDisplayObject,\ removing\ it\ from\ the\ simulation\ and\ increasing\ the\ consumers\ size.\r\n\ \r\n\ @param\ victim\ \ \ \ \ \ \ \ the\ unfortunate\ IDisplayObject\ to\ be\ eaten.\r\n\ @return\ void\r\n
+numComments=1
