@@ -36,7 +36,7 @@ public class SeaHorse implements IUpdatable, IDisplayable
    public SeaHorse()
    {
        // INITIALIZE '_seaHorse' as a 'DisplayObject':
-       _seaHorse = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225);
+       _seaHorse = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225); // SETS scale within client-brief range.
        // SET the '_seaHorse' objects orientation so it's the right way up:
        _seaHorse.orientation(0,270,0);
        
@@ -70,6 +70,18 @@ public class SeaHorse implements IUpdatable, IDisplayable
    {
        // INJECT '_seaHorse' into the virtual world:
        world.addDisplayObject(_seaHorse);
+   }
+   
+   /**
+     * METHOD: Removes the contained DisplayObject from the IWorld reference provided.
+     * - Must be done after World has been created.
+     * 
+     * @param world     IWorld reference representing the 3D world.
+     */
+   public void removeDisplayable(IWorld world) throws WorldDoesNotExistException
+   {
+       // REMOVE '_seaHorse' from the virtual world:
+       world.removeDisplayObject(_seaHorse);
    }
 
    // ------------------------------ IMPLEMENTATION OF IUpdatable ------------------------------ //

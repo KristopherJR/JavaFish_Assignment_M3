@@ -20,7 +20,15 @@ public interface IDisplayable
      * METHOD: Inject the IDisplayable by passing its contained DisplayObject into the reference to IWorld provided.
      * - Must be done after World has been created.
      *
-     *@param world IWorld reference representing the 3D world.
+     *@param world      IWorld reference representing the 3D world.
      */
     void injectDisplayable(IWorld world) throws WorldDoesNotExistException;
+    
+    /**
+     * METHOD: Removes the contained DisplayObject from the IWorld reference provided.
+     * - Must be done after World has been created.
+     * 
+     * @param world     IWorld reference representing the 3D world.
+     */
+    void removeDisplayable(IWorld world) throws WorldDoesNotExistException;
 }

@@ -37,7 +37,7 @@ public class Urchin implements IUpdatable, IDisplayable
    public Urchin()
    {
        // INITIALIZE 'urchin' as a 'DisplayObject':
-       _urchin = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225);
+       _urchin = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225); // SETS scale within client-brief range.
        // SET the '_seaHorse' objects orientation so it's the right way up:
        _urchin.orientation(0,270,0);
        
@@ -68,6 +68,18 @@ public class Urchin implements IUpdatable, IDisplayable
    {
        // INJECT '_urchin' into the virtual world:
        world.addDisplayObject(_urchin);
+   }
+   
+   /**
+     * METHOD: Removes the contained DisplayObject from the IWorld reference provided.
+     * - Must be done after World has been created.
+     * 
+     * @param world     IWorld reference representing the 3D world.
+     */
+   public void removeDisplayable(IWorld world) throws WorldDoesNotExistException
+   {
+       // REMOVE '_urchin' from the virtual world:
+       world.removeDisplayObject(_urchin);
    }
    
    // ------------------------------ IMPLEMENTATION OF IUpdatable ------------------------------ //

@@ -1,8 +1,8 @@
 #BlueJ package file
 objectbench.height=93
-objectbench.width=768
-package.editor.height=393
-package.editor.width=670
+objectbench.width=1900
+package.editor.height=866
+package.editor.width=1802
 package.editor.x=489
 package.editor.y=186
 package.numDependencies=0
@@ -20,4 +20,4 @@ target2.name=Implementations
 target2.type=PackageTarget
 target2.width=120
 target2.x=330
-target2.y=20
+target2.y=30

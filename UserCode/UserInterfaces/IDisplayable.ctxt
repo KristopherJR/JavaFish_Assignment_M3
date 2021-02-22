@@ -1,5 +1,8 @@
 #BlueJ class context
 comment0.params=world
 comment0.target=void\ injectDisplayable(Framework.Interfaces.IWorld)
-comment0.text=\r\n\ METHOD\:\ Inject\ the\ IDisplayable\ by\ passing\ its\ contained\ DisplayObject\ into\ the\ reference\ to\ IWorld\ provided.\r\n\ -\ Must\ be\ done\ after\ World\ has\ been\ created.\r\n\r\n@param\ world\ IWorld\ reference\ representing\ the\ 3D\ world.\r\n
-numComments=1
+comment0.text=\r\n\ METHOD\:\ Inject\ the\ IDisplayable\ by\ passing\ its\ contained\ DisplayObject\ into\ the\ reference\ to\ IWorld\ provided.\r\n\ -\ Must\ be\ done\ after\ World\ has\ been\ created.\r\n\r\n@param\ world\ \ \ \ \ \ IWorld\ reference\ representing\ the\ 3D\ world.\r\n
+comment1.params=world
+comment1.target=void\ removeDisplayable(Framework.Interfaces.IWorld)
+comment1.text=\r\n\ METHOD\:\ Removes\ the\ contained\ DisplayObject\ from\ the\ IWorld\ reference\ provided.\r\n\ -\ Must\ be\ done\ after\ World\ has\ been\ created.\r\n\ \r\n\ @param\ world\ \ \ \ \ IWorld\ reference\ representing\ the\ 3D\ world.\r\n
+numComments=2

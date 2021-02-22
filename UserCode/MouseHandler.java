@@ -29,7 +29,6 @@ public class MouseHandler implements IInputPublisher, IUpdatable
     {
         // INSTANTIATE listeners list:
         _listeners = new ArrayList<IInputListener>();
-        
     }
     
     // ---------------------------------- Implementation of IInputPublisher ---------------------------------- //

@@ -22,26 +22,26 @@ public class Bubble implements IUpdatable, IDisplayable
     private static final String MODEL = "sphere";
     // DECLARE a private static final String, call it 'TEXTURE' and set it to the filepath of an appropriate image:
     private static final String TEXTURE = "textures/javaFish/Bubble.png";
-    
     // DECLARE an 'IDisplayObject', call it '_bubble':
     private IDisplayObject _bubble;
     // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_soundEffects'. Used to store all objects of type 'SoundEffect':
     private List<SoundEffect> _soundEffects;
+    // DECLARE a private Boolean, call it 'canSpawn'. This is used to check if a bubble has been placed in the aquarium:
+    private Boolean canSpawn = true;
+    // DECLARE a private Boolean, call it 'flagDeletion'. This will be set to true if a Bubble touches the roof of the aquarium. Set it to false:
+    private Boolean flagDeletion = false;
     /**
      * Constructor for objects of class Bubble
-     * 
-     * @param x         The initial X co-ordiate of the Bubble.
-     * @param y         The initial Y co-ordinate of the Bubble.
-     * @param scale     The scale (size) of the Bubble.
+     *
      */
-    public Bubble(double x, double y, double scale)
+    public Bubble()
     {
-        //INITALISE '_bubble' with appropriate parameters:
-        _bubble = new DisplayObject(MODEL, TEXTURE, scale);
-        //SET the Bubbles position to the parameters provided on creation:
-        _bubble.position(x,y,1.0);
-        //SET 'velocityY' to 0.005:
+        // INITALISE '_bubble' with appropriate parameters:
+        _bubble = new DisplayObject(MODEL, TEXTURE, 0.15);
+        // SET 'velocityY' to 0.005:
         ((DisplayObject)_bubble).setVelocityY(0.005);
+        // POPULATE the _soundEffects List:
+        this.createSoundEffects();
     }
     
     /**
@@ -71,6 +71,19 @@ public class Bubble implements IUpdatable, IDisplayable
     }
     
     /**
+     * METHOD: When called, This method will play a random sound effect everytime it is called from the '_soundEffects' List.
+     *         
+     * @return void
+     */
+    public void makeSound()
+    {
+        //DECLARE int i, generate a random number between 0 - _soundEffects.size() - Store it in i:
+        int i = (int)(_soundEffects.size() * Math.random()); //code snippet from https://javarevisited.blogspot.com/2013/05/how-to-generate-random-numbers-in-java-between-range.html#:~:text=If%20you%20want%20to%20create,that%20number%20into%20int%20later.
+        //PLAY a random sound effect from the _soundEffects List at index i:
+        _soundEffects.get(i).playSoundEffect();
+    }
+    
+    /**
      * METHOD: set the initial position of the Bubble in the aquarium - method from Marc Price, edited by Kristoper Randle.
      * 
      * @param  x    the rqd position along the x axis
@@ -78,11 +91,31 @@ public class Bubble implements IUpdatable, IDisplayable
      * 
      * @return      void 
      */
-    protected void setPosition(double x, double y)
+    public void setPosition(double x, double y)
     {
         // SET the position of this Bubble to the x,y provided, cast to its ILocation interface:
         ((ILocation)_bubble).setX(x);
         ((ILocation)_bubble).setY(y);
+    }
+    
+    public void setCanSpawn(Boolean value)
+    {
+        canSpawn = value;
+    }
+    
+    public void setFlagDeletion(Boolean value)
+    {
+        flagDeletion = value;
+    }
+    
+    public Boolean getCanSpawn()
+    {
+        return canSpawn;
+    }
+    
+    public Boolean getFlagDeletion()
+    {
+        return flagDeletion;
     }
     
     // ------------------------------ IMPLEMENTATION OF IDisplayable ------------------------------ //
@@ -101,6 +134,18 @@ public class Bubble implements IUpdatable, IDisplayable
         world.addDisplayObject(_bubble);
     }
     
+    /**
+     * METHOD: Removes the contained DisplayObject from the IWorld reference provided.
+     * - Must be done after World has been created.
+     * 
+     * @param world     IWorld reference representing the 3D world.
+     */
+    public void removeDisplayable(IWorld world) throws WorldDoesNotExistException
+    {
+        // REMOVE '_bubble' from the virtual world:
+        world.removeDisplayObject(_bubble);
+    }
+    
     // ------------------------------ IMPLEMENTATION OF IUpdatable ------------------------------ //
     /**
      * METHOD: update() the DisplayObject contained in the class.
@@ -111,5 +156,18 @@ public class Bubble implements IUpdatable, IDisplayable
     {
         // CALL update() on '_bubble', cast to its IUpdatable interface:
         ((IUpdatable)_bubble).update();
+        
+        // IF the Bubble has gone past the roof:
+        if(((ILocation)_bubble).getY() > 7.5)
+        {
+            // RESET the Bubble to just below the roof, this will stop the program polling to check if the bubble has gone past the roof on each pass of the update loop:
+            ((ILocation)_bubble).setY(7.3);
+            // MAKE a 'pop' sound:
+            this.makeSound();
+            // WRITE to the console to signifying popping (de-bugging usage):
+            System.out.println("THIS BOI POPPED!");
+            // FLAG it for deletion:
+            flagDeletion = true;
+        }
     }
 }

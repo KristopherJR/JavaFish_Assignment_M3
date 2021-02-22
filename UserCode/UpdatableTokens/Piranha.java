@@ -3,6 +3,7 @@ package UserCode.UpdatableTokens;
 import Framework.Interfaces.*;
 import Framework.Implementations.*;
 
+import UserCode.UpdatableFactory;
 import UserCode.UserInterfaces.*;
 import UserCode.SoundEffect;
 import Exceptions.*;
@@ -32,8 +33,9 @@ public class Piranha implements IUpdatable, IDisplayable
    private Random _random;
    // DECLARE an 'IDisplayObject', call it '_piranha':
    private IDisplayObject _piranha;
-   // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_soundEffects'. Used to store all objects of type 'SoundEffect':
-   private List<SoundEffect> _soundEffects;
+   
+   // DECLARE a List array, call it '_bubblePool'. Make it contain instances of the 'IUpdatable' interface:
+   private List<IUpdatable> _bubblePool;
    /**
     * Constructor for objects of class Piranha
     * 
@@ -55,69 +57,40 @@ public class Piranha implements IUpdatable, IDisplayable
            _texture = "textures/javaFish/PiranhaGreen.png";
        }
        // INITIALIZE '_piranha' as a 'DisplayObject':
-       _piranha = new DisplayObject(MODEL, _texture, Math.random() * (0.45 - 0.225) + 0.225);
+       _piranha = new DisplayObject(MODEL, _texture, Math.random() * (0.45 - 0.225) + 0.225); // SETS scale within client-brief range.
        // SET the '_seaHorse' objects orientation so it's the right way up:
        _piranha.orientation(0,270,0);
-       
        // SET a random position for the '_piranha' by calling its GenerateRandomPosition() method, cast to its ILocation interface:
        ((ILocation)_piranha).GenerateRandomPosition();
-       
-       // INITALIZE the _soundEffects List:
-       this.CreateSoundEffects();
        // GENERATE a random speed for this object between 0.005 - 0.05:
        this.GenerateRandomSpeed();
    }
-    
+   
    /**
-    * METHOD: Initalises and populates the List '_soundEffects' with an appropriate selection of .wav files.
-    *         Any 'Piranha' can play any one of these 'SoundEffect's at a time.
+    * METHOD: INITIALIZE and POPULATE the '_bubblePool'. New Bubble objects should be created using the UpdatableFactory reference passed in.
     * 
-    * @return      void 
-    */
-   public void CreateSoundEffects()
-   {
-       //INITIALISE the List '_soundEffects' as an 'ArrayList': 
-       _soundEffects = new ArrayList<SoundEffect>();
-        
-       //INITIALISE all sound effects as type 'SoundEffect':
-       SoundEffect bubble_emit1 = new SoundEffect("sfx/bubble_emit1.wav");
-       SoundEffect bubble_emit2 = new SoundEffect("sfx/bubble_emit2.wav"); 
-       SoundEffect bubble_emit3 = new SoundEffect("sfx/bubble_emit3.wav"); 
-       SoundEffect bubble_emit4 = new SoundEffect("sfx/bubble_emit4.wav"); 
-       SoundEffect bubble_emit5 = new SoundEffect("sfx/bubble_emit5.wav"); 
-        
-       //ADD each 'SoundEffect' to the '_soundEffects' List:
-       _soundEffects.add(bubble_emit1);
-       _soundEffects.add(bubble_emit2);
-       _soundEffects.add(bubble_emit3);
-       _soundEffects.add(bubble_emit4);
-       _soundEffects.add(bubble_emit5);
-   }
-
-   /**
-    * METHOD: When called, gives the 'Piranha' a 1 in 900 chance of playing a random bubble sound:
-    */
-   public void MakeSound()
-   {
-       //HAVE a 1 in 900 chance of playing a random sound effect each time update() is called:
-       int random = (int)(900 * Math.random()); //code snippet from https://javarevisited.blogspot.com/2013/05/how-to-generate-random-numbers-in-java-between-range.html#:~:text=If%20you%20want%20to%20create,that%20number%20into%20int%20later.
-       if(random == 1)
-       {
-           this.playRandomSoundEffect();
-       }
-   }
-    
-   /**
-    * METHOD: This method will play a random sound effect everytime it is called from the '_soundEffects' List.
+    * @param A reference to the UpdatableFactory used to create the new Bubble objects.
     * 
     * @return void
     */
-   public void playRandomSoundEffect()
+   public void populateBubblePool(IUpdatableFactory factory)
    {
-       //DECLARE int i, generate a random number between 0 - _soundEffects.size() - Store it in i:
-       int i = (int)(_soundEffects.size() * Math.random()); //code snippet from https://javarevisited.blogspot.com/2013/05/how-to-generate-random-numbers-in-java-between-range.html#:~:text=If%20you%20want%20to%20create,that%20number%20into%20int%20later.
-       //PLAY a random sound effect from the _soundEffects List at index i:
-       _soundEffects.get(i).playSoundEffect();
+       // INITIALIZE the '_bubblePool' as an ArrayList:
+       _bubblePool = new ArrayList<IUpdatable>();
+       try
+       {
+           // CREATE 2 Bubble objects using the factory, store them as IUpdatable:
+           IUpdatable b1 = factory.create(Bubble.class);
+           IUpdatable b2 = factory.create(Bubble.class);           
+           // ADD the 2 Bubbles to the '_bubblePool':
+           _bubblePool.add(b1);
+           _bubblePool.add(b2);
+       }
+       catch(Exception e)
+       {
+           // PRINT the error message:
+           System.out.println(e.getMessage());
+       }
    }
     
    public void GenerateRandomSpeed()
@@ -142,7 +115,19 @@ public class Piranha implements IUpdatable, IDisplayable
        world.addDisplayObject(_piranha);
    }
    
-   // -------------------------- IMPLEMENTATION OF IUpdatable --------------------------- //
+   /**
+     * METHOD: Removes the contained DisplayObject from the IWorld reference provided.
+     * - Must be done after World has been created.
+     * 
+     * @param world     IWorld reference representing the 3D world.
+     */
+   public void removeDisplayable(IWorld world) throws WorldDoesNotExistException
+   {
+       // REMOVE '_piranha' from the virtual world:
+       world.removeDisplayObject(_piranha);
+   }
+   
+   // ------------------------------ IMPLEMENTATION OF IUpdatable ------------------------------ //
    /**
      * METHOD: called on each pass of the Simulation. Check the object is in the boundaries of the aquarium and move it.
      */
@@ -150,8 +135,7 @@ public class Piranha implements IUpdatable, IDisplayable
    {
        //CHECK the DisplayObject is within the aquarium:
        ((DisplayObject)_piranha).inBounds();
-       
-       this.MakeSound();
+ 
        // CALL update() on '_piranha', cast to its IUpdatable interface:
        ((IUpdatable)_piranha).update();
    }

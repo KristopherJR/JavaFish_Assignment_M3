@@ -64,6 +64,18 @@ public class FishFood implements IUpdatable, IDisplayable
        world.addDisplayObject(_fishFood);
     }
     
+    /**
+     * METHOD: Removes the contained DisplayObject from the IWorld reference provided.
+     * - Must be done after World has been created.
+     * 
+     * @param world     IWorld reference representing the 3D world.
+     */
+    public void removeDisplayable(IWorld world) throws WorldDoesNotExistException
+    {
+        // REMOVE '_fishFood' from the virtual world:
+        world.removeDisplayObject(_fishFood);
+    }
+    
     // ------------------------------ IMPLEMENTATION OF IUpdatable ------------------------------ //
     /**
      * METHOD: called on each pass of the Simulation, calls the update method in DisplayObject. Stops FishFood from going past the aquarium floor and makes it rest
