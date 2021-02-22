@@ -9,7 +9,7 @@ import javax.sound.sampled.*;
  * Sound effect samples obtained from https://www.zapsplat.com and used in accordance to their standard licensing.
  * 
  * @author Kristopher Randle & RyiSnow
- * @version 29-01-2021
+ * @version 29-01-2021, 0.1 
  */
 public class SoundEffect
 {

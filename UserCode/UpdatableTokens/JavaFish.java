@@ -14,7 +14,7 @@ import java.util.List;
  * Represents a 'JavaFish'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 19-02-2021, 0.4
+ * @version 22-02-2021, 0.5
  */
 public class JavaFish implements IUpdatable, IDisplayable, IConsumer
 {
@@ -53,7 +53,7 @@ public class JavaFish implements IUpdatable, IDisplayable, IConsumer
        this.GenerateRandomSpeed();
        // _updatableFactory:
         _updatableFactory = new UpdatableFactory();
-        
+       // POPULATE the '_bubblePool':
        this.populateBubblePool();
    }
    
@@ -81,25 +81,43 @@ public class JavaFish implements IUpdatable, IDisplayable, IConsumer
            System.out.println(e.getMessage());
        }
    }
-
+   
+   /**
+    * METHOD: returns the self-contained DisplayObject's X co-ordinate.
+    * 
+    * @return   The self-contained DisplayObject's X co-ordinate.
+    */
    public double getDisplayX()
    {
+       // RETURN the DisplayObject's X co-ordinate:
        return ((ILocation)_javaFish).getX();
    }
    
+   /**
+    * METHOD: returns the self-contained DisplayObject's Y co-ordinate.
+    * 
+    * @return   The self-contained DisplayObject's Y co-ordinate.
+    */
    public double getDisplayY()
    {
+       // RETURN the DisplayObject's Y co-ordinate:
        return ((ILocation)_javaFish).getY();
    }
    
    public void GenerateRandomSpeed()
    {
-       // GENERATE a random X velocity for the JavaFish:
+       // GENERATE a random X velocity for the '_javaFish':
        ((DisplayObject)_javaFish).setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
    }
    
+   /**
+    * METHOD: returns a reference to this JavaFish's Bubble Pool.
+    * 
+    * @return   A list of IUpdatable containing the Bubble Pool.
+    */
    public List<IUpdatable> getBubblePool()
    {
+       // RETURN the '_bubblePool':
        return _bubblePool;
    }
    

@@ -15,7 +15,7 @@ import java.util.Random;
  * Represents a 'Piranha'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 19-02-2021, 0.4
+ * @version 22-02-2021, 0.5
  */
 public class Piranha implements IUpdatable, IDisplayable
 {
@@ -33,6 +33,9 @@ public class Piranha implements IUpdatable, IDisplayable
    private Random _random;
    // DECLARE an 'IDisplayObject', call it '_piranha':
    private IDisplayObject _piranha;
+   
+   // DECLARE an IUpdatableFactory, call it '_updatableFactory':
+    private IUpdatableFactory _updatableFactory;
    
    // DECLARE a List array, call it '_bubblePool'. Make it contain instances of the 'IUpdatable' interface:
    private List<IUpdatable> _bubblePool;
@@ -64,24 +67,26 @@ public class Piranha implements IUpdatable, IDisplayable
        ((ILocation)_piranha).GenerateRandomPosition();
        // GENERATE a random speed for this object between 0.005 - 0.05:
        this.GenerateRandomSpeed();
+       // _updatableFactory:
+        _updatableFactory = new UpdatableFactory();
+       // POPULATE the '_bubblePool':
+       this.populateBubblePool();
    }
    
    /**
-    * METHOD: INITIALIZE and POPULATE the '_bubblePool'. New Bubble objects should be created using the UpdatableFactory reference passed in.
-    * 
-    * @param A reference to the UpdatableFactory used to create the new Bubble objects.
+    * METHOD: INITIALIZE and POPULATE the '_bubblePool'. New Bubble objects should be created using the UpdatableFactory.
     * 
     * @return void
     */
-   public void populateBubblePool(IUpdatableFactory factory)
+   public void populateBubblePool()
    {
        // INITIALIZE the '_bubblePool' as an ArrayList:
        _bubblePool = new ArrayList<IUpdatable>();
        try
        {
            // CREATE 2 Bubble objects using the factory, store them as IUpdatable:
-           IUpdatable b1 = factory.create(Bubble.class);
-           IUpdatable b2 = factory.create(Bubble.class);           
+           IUpdatable b1 = _updatableFactory.create(Bubble.class);
+           IUpdatable b2 = _updatableFactory.create(Bubble.class);           
            // ADD the 2 Bubbles to the '_bubblePool':
            _bubblePool.add(b1);
            _bubblePool.add(b2);
@@ -92,11 +97,44 @@ public class Piranha implements IUpdatable, IDisplayable
            System.out.println(e.getMessage());
        }
    }
+   
+   /**
+    * METHOD: returns the self-contained DisplayObject's X co-ordinate.
+    * 
+    * @return   The self-contained DisplayObject's X co-ordinate.
+    */
+   public double getDisplayX()
+   {
+       // RETURN the DisplayObject's X co-ordinate:
+       return ((ILocation)_piranha).getX();
+   }
+   
+   /**
+    * METHOD: returns the self-contained DisplayObject's Y co-ordinate.
+    * 
+    * @return   The self-contained DisplayObject's Y co-ordinate.
+    */
+   public double getDisplayY()
+   {
+       // RETURN the DisplayObject's Y co-ordinate:
+       return ((ILocation)_piranha).getY();
+   }
     
    public void GenerateRandomSpeed()
    {
        // GENERATE a random X velocity for the '_piranha':
        ((DisplayObject)_piranha).setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
+   }
+   
+   /**
+    * METHOD: returns a reference to this Piranha's Bubble Pool.
+    * 
+    * @return   A list of IUpdatable containing the Bubble Pool.
+    */
+   public List<IUpdatable> getBubblePool()
+   {
+       // RETURN the '_bubblePool':
+       return _bubblePool;
    }
     
    // ------------------------------ IMPLEMENTATION OF IDisplayable ------------------------------ //

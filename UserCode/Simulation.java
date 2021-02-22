@@ -19,7 +19,7 @@ import java.util.List;
  * Simulation is the top-level class for the Aquarium simulation.
  * 
  * @author Kristopher Randle & Marc Price
- * @version 19-02-2021, 1.0
+ * @version 22-02-2021, 1.1
  */
 public class Simulation implements IInputListener
 {
@@ -211,7 +211,7 @@ public class Simulation implements IInputListener
     }
     
     /**
-     * METHOD: is called on each simulation pass. Will give each Piranha and JavaFish a 1 in 900 chance of spawning a Bubble at their mouth.
+     * METHOD: is called on each simulation pass. JavaFish have a 1 in 2000 chance of spawning a Bubble at their mouth. Piranha have a 1 in 900 chance of spawning a bubble. 
      * 
      * @return void
      */
@@ -275,6 +275,62 @@ public class Simulation implements IInputListener
                         // RESET its canSpawn to True:
                         ((Bubble)bubble).setCanSpawn(true);
                         
+                    }
+                }
+            }
+            
+            // IF the current entity is a Piranha:
+            if(_entities.get(i) instanceof Piranha)
+            {
+                // GET a copy of the Fishes Bubble Pool:
+                List<IUpdatable> _bPool = ((Piranha)_entities.get(i)).getBubblePool();
+                // SET-UP a temp counter to make sure only 1 Bubble is spawned at a time:
+                int temp = 1;
+                // GIVE a 1 in 900 chance to spawn the Bubble:
+                int random = (int)(900 * Math.random()); //code snippet from https://javarevisited.blogspot.com/2013/05/how-to-generate-random-numbers-in-java-between-range.html#:~:text=If%20you%20want%20to%20create,that%20number%20into%20int%20later.
+                // FOR each Bubble in the Bubble Pool:
+                for(IUpdatable bubble : _bPool)
+                {
+                    // CHECK if the current bubble hasn't been spawned and no other bubble has been spawned yet:
+                    if(((Bubble)bubble).getCanSpawn() && temp == 1)
+                    {
+                        // GIVE a 1 in 2000 chance to spawn the Bubble:
+                        if(random == 1)
+                        {
+                            try
+                            {
+                                // SET the bubble to the Piranha mouth x and y:
+                                ((Bubble)bubble).setPosition(((Piranha)_entities.get(i)).getDisplayX(), ((Piranha)_entities.get(i)).getDisplayY());
+                                // ADD the bubble to the '_entities' List:
+                                _entities.add(bubble);
+                                // SPAWN the bubble into the world:
+                                ((IDisplayable)bubble).injectDisplayable(_world);
+                                // PLAY a bubble sound effect:
+                                ((Bubble)bubble).makeSound();
+                            }
+                            catch(Exception e)
+                            {
+                                // PRINT the error message:
+                                System.out.println(e.getMessage());
+                            }
+                            // SET the Bubbles canSpawn to false:
+                            ((Bubble)bubble).setCanSpawn(false);
+                            // INCREASE temp by 1 to stop the method spawning both Bubbles:
+                            temp++;
+                        }
+                    }
+                    
+                    // IF this Bubble is scheduled for deletion:
+                    if(((Bubble)bubble).getFlagDeletion())
+                    {
+                        // RESET its flag deletion Boolean:
+                        ((Bubble)bubble).setFlagDeletion(false);
+                        // REMOVE it the virtual world:
+                        ((IDisplayable)bubble).removeDisplayable(_world);
+                        // REMOVE it from the '_entities' List:
+                        _entities.remove(bubble);
+                        // RESET its canSpawn to True:
+                        ((Bubble)bubble).setCanSpawn(true);
                     }
                 }
             }

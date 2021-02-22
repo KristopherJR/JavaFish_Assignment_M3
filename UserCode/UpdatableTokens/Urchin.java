@@ -12,7 +12,7 @@ import java.util.List;
  * Represents an 'Urchin'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 19-02-2021, 0.4
+ * @version 22-02-2021, 0.5
  */
 public class Urchin implements IUpdatable, IDisplayable
 {

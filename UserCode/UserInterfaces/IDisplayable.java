@@ -12,13 +12,16 @@ import Exceptions.*;
  * Heavily based off of Chris Blythe's live coding session from Week 16 on BlackBoard, on the 'ISpawnable' interface.
  * 
  * @author Chris Blythe, Kristopher Randle
- * @version 0.1
+ * @version 22-02-2021, 0.2
  */
 public interface IDisplayable
 {   
     /**
      * METHOD: Inject the IDisplayable by passing its contained DisplayObject into the reference to IWorld provided.
      * - Must be done after World has been created.
+     *
+     * This helps preserve an objects encapulsation as it allows the object to be injected into the game world, rather than returning its private
+     * DisplayObject.
      *
      *@param world      IWorld reference representing the 3D world.
      */

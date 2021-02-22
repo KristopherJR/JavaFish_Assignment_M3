@@ -14,7 +14,7 @@ import java.util.List;
  * Bubbles contains all of the code needed to represent a Bubble to be placed in the Aquarium.
  * 
  * @author Kristopher Randle 
- * @version 19-02-2021, 0.4
+ * @version 22-02-2021, 0.5
  */
 public class Bubble implements IUpdatable, IDisplayable
 {

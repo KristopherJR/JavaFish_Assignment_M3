@@ -12,7 +12,7 @@ import java.util.List;
  * Represents a 'SeaHorse'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 19-02-2021, 0.3
+ * @version 22-02-2021, 0.4
  */
 public class SeaHorse implements IUpdatable, IDisplayable
 {

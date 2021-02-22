@@ -10,7 +10,7 @@ import Exceptions.*;
  * the aquarium and rest there. If the food collides with a fish token at any point, it should be 'eaten', removing it from the aquarium.
  * 
  * @author Kristopher Randle 
- * @version 19-02-2021, 0.3
+ * @version 22-02-2021, 0.4
  */
 public class FishFood implements IUpdatable, IDisplayable
 {
