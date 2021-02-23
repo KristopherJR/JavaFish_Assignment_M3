@@ -70,7 +70,10 @@ public class JavaFish implements IUpdatable, IDisplayable, IConsumer
        {
            // CREATE 2 Bubble objects using the factory, store them as IUpdatable:
            IUpdatable b1 = _updatableFactory.create(Bubble.class);
-           IUpdatable b2 = _updatableFactory.create(Bubble.class);           
+           IUpdatable b2 = _updatableFactory.create(Bubble.class);
+           // SET both Bubble objects scale to 25% of '_javaFish' scale:
+           ((Bubble)b1).setScale(((DisplayObject)_javaFish).getScale()*0.25);
+           ((Bubble)b2).setScale(((DisplayObject)_javaFish).getScale()*0.25);
            // ADD the 2 Bubbles to the '_bubblePool':
            _bubblePool.add(b1);
            _bubblePool.add(b2);

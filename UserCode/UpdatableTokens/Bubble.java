@@ -26,10 +26,10 @@ public class Bubble implements IUpdatable, IDisplayable
     private IDisplayObject _bubble;
     // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_soundEffects'. Used to store all objects of type 'SoundEffect':
     private List<SoundEffect> _soundEffects;
-    // DECLARE a private Boolean, call it 'canSpawn'. This is used to check if a bubble has been placed in the aquarium:
-    private Boolean canSpawn = true;
-    // DECLARE a private Boolean, call it 'flagDeletion'. This will be set to true if a Bubble touches the roof of the aquarium. Set it to false:
-    private Boolean flagDeletion = false;
+    // DECLARE a private Boolean, call it '_canSpawn'. This is used to check if a bubble has been placed in the aquarium:
+    private Boolean _canSpawn = true;
+    // DECLARE a private Boolean, call it '_flagDeletion'. This will be set to true if a Bubble touches the roof of the aquarium. Set it to false:
+    private Boolean _flagDeletion = false;
     /**
      * Constructor for objects of class Bubble
      *
@@ -83,6 +83,30 @@ public class Bubble implements IUpdatable, IDisplayable
         _soundEffects.get(i).playSoundEffect();
     }
     
+    // ------------------------------ ACCESSORS ------------------------------ //
+    /**
+     * METHOD: get the value contained in '_canSpawn'
+     * 
+     * @return      The Boolean value of '_canSpawn'
+     */
+    public Boolean getCanSpawn()
+    {
+        // RETURN 'canSpawn':
+        return _canSpawn;
+    }
+    
+    /**
+     * METHOD: get the value contained in '_flagDeletion'
+     * 
+     * @return      The Boolean value of '_flagDeletion'
+     */
+    public Boolean getFlagDeletion()
+    {
+        // RETURN '_flagDeletion':
+        return _flagDeletion;
+    }
+    
+    // ------------------------------ MUTATORS ------------------------------ //
     /**
      * METHOD: set the initial position of the Bubble in the aquarium - method from Marc Price, edited by Kristoper Randle.
      * 
@@ -98,24 +122,34 @@ public class Bubble implements IUpdatable, IDisplayable
         ((ILocation)_bubble).setY(y);
     }
     
+    public void setScale(double scale)
+    {
+        // SET the scale of '_bubble' to the provided parameter:
+        ((DisplayObject)_bubble).setScale(scale);
+    }
+    
+    /**
+     * METHOD: used to set the value of '_canSpawn' to true of false. '_canSpawn' is used to check if a Bubble is eligible to be placed in the 3D world.
+     * 
+     * @param  value     a Boolean value to set '_canSpawn' to
+     * @return void
+     */
     public void setCanSpawn(Boolean value)
     {
-        canSpawn = value;
+        // SET '_canSpawn' to value:
+        _canSpawn = value;
     }
     
+    /**
+     * METHOD: used to set the value of '_flagDeletion' to true of false. '_flagDeletion' is used to signify that a Bubble needs to be removed from the 3D world.
+     * 
+     * @param  value     a Boolean value to set '_flagDeletion' to
+     * @return void
+     */
     public void setFlagDeletion(Boolean value)
     {
-        flagDeletion = value;
-    }
-    
-    public Boolean getCanSpawn()
-    {
-        return canSpawn;
-    }
-    
-    public Boolean getFlagDeletion()
-    {
-        return flagDeletion;
+        // SET '_flagDeletion' to value:
+        _flagDeletion = value;
     }
     
     // ------------------------------ IMPLEMENTATION OF IDisplayable ------------------------------ //
@@ -167,7 +201,7 @@ public class Bubble implements IUpdatable, IDisplayable
             // WRITE to the console to signifying popping (de-bugging usage):
             System.out.println("THIS BOI POPPED!");
             // FLAG it for deletion:
-            flagDeletion = true;
+            _flagDeletion = true;
         }
     }
 }
