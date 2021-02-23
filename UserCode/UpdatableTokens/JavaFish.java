@@ -44,7 +44,7 @@ public class JavaFish implements IUpdatable, IDisplayable, IConsumer
    public JavaFish()
    {
        //INITIALIZE '_javaFish' as a 'DisplayObject':
-       _javaFish = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225); // SETS scale within client-brief range.
+       _javaFish = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.15 - 0.10) + 0.10); // SETS scale within client-brief range.
        // SET the '_javaFish' objects orientation so it's the right way up:
        _javaFish.orientation(0,270,0);
        // SET a random position for the '_javaFish' by calling its GenerateRandomPosition() method, cast to its ILocation interface:
