@@ -397,8 +397,7 @@ public class Simulation implements IInputListener
         }
         catch (WorldDoesNotExistException e)
         {
-            // PRINT the error message:
-            System.out.println(e.getMessage());
+            // do nothing
         }
     }
 }

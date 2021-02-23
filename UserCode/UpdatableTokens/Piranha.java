@@ -60,7 +60,7 @@ public class Piranha implements IUpdatable, IDisplayable
            _texture = "textures/javaFish/PiranhaGreen.png";
        }
        // INITIALIZE '_piranha' as a 'DisplayObject':
-       _piranha = new DisplayObject(MODEL, _texture, Math.random() * (0.45 - 0.225) + 0.225); // SETS scale within client-brief range.
+       _piranha = new DisplayObject(MODEL, _texture, Math.random() * (0.45 - 0.225) + 0.225, false); // SETS scale within client-brief range.
        // SET the '_seaHorse' objects orientation so it's the right way up:
        _piranha.orientation(0,270,0);
        // SET a random position for the '_piranha' by calling its GenerateRandomPosition() method, cast to its ILocation interface:

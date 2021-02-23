@@ -37,7 +37,7 @@ public class Bubble implements IUpdatable, IDisplayable
     public Bubble()
     {
         // INITALISE '_bubble' with appropriate parameters:
-        _bubble = new DisplayObject(MODEL, TEXTURE, 0.15);
+        _bubble = new DisplayObject(MODEL, TEXTURE, 0.15, false);
         // SET 'velocityY' to 0.005:
         ((DisplayObject)_bubble).setVelocityY(0.005);
         // POPULATE the _soundEffects List:

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=message
+comment0.target=InvalidImageFileException(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ InvalidImageFileException\r\n\ \r\n\ @param\ message\ A\ description\ of\ the\ error\ that\ caused\ the\ exception\ to\ be\ thrown.\r\n\ \r\n
+numComments=1

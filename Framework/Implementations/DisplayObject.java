@@ -1,13 +1,14 @@
 package Framework.Implementations;
 
 import UserCode.UserInterfaces.*;
+import Exceptions.*;
 
 import Framework.Interfaces.*;
 /**
  * The DisplayObject contains all the data for displaying something by a Core instance.
  * 
  * @author Marc Price & Kristopher Randle 
- * @version 0.7
+ * @version 23-02-2021, 0.8
  */
 public class DisplayObject implements IDisplayObject, IUpdatable, ILocation
 {
@@ -40,13 +41,54 @@ public class DisplayObject implements IDisplayObject, IUpdatable, ILocation
      * @param  model    the path to the file for the model
      * @param  tex      the path to the file for the texture
      * @param  scale    the amount to scale the model by to produce the rqd size object
+     * @param  JavaFish a Boolean value used to determine if the creating class is a JavaFish or not
+     * 
+     * @throws OutOfBoundsException
      */
-    public DisplayObject(String model, String tex, double scale)
+    public DisplayObject(String model, String tex, double scale, Boolean JavaFish) throws OutOfBoundsException
     {
-        //SET the 'model', 'texture' and 'scale' to the provided parameters:
-        this.model = model;
-        this.texture = tex;
-        this.scale = scale;
+        // IF the current class setting up the DisplayObject is a JavaFish:
+        if(JavaFish == true)
+        {
+            // CHECK the scale is between the specified range:
+            if((scale < 0.10)||(scale > 0.15))
+            {
+                // IF it's not, throw an OutOfBoundsException:
+                throw new OutOfBoundsException("A JavaFish DisplayObject scale must be between 0.10 - 0.15");
+            }
+            else
+            {
+                // IF it is, set the DisplayObjects scale to the provided scale parameter:
+                this.scale = scale;
+            }
+        }
+        // IF the current class setting up the DisplayObject is NOT a JavaFish:
+        else if(JavaFish == false)
+        {
+            // CHECK the scale is between the specified range:
+            if((scale < 0.15)||(scale > 0.45))
+            {
+                // IF it's not, throw an OutOfBoundsException:
+                throw new OutOfBoundsException("A DisplayObject scale must be between 0.225 - 0.45 (1/20th - 1/10th window size)");
+            }
+            else
+            {
+                // IF it is, set the DisplayObjects scale to the provided scale parameter:
+                this.scale = scale;
+            }
+        }
+        //CALL this DisplayObjects validateModel method, to check that the model provided is a valid model file:
+        if(this.validateModel(model) == true)
+        {
+            // VALIDATE provided String 'model' is a .obj file or 'sphere' before initalising the object with that model.
+            this.model = model;
+        }
+        //CALL this DisplayObjects validateTexture method, to check that the texture provided is a valid image file:
+        if(this.validateTexture(tex) == true)
+        {
+            // VALIDATE provided String 'tex' is a .png or .jpg file before initalising the object with that texture.
+            this.texture = tex;
+        }
     }
     
     /**
@@ -81,6 +123,56 @@ public class DisplayObject implements IDisplayObject, IUpdatable, ILocation
         {
             this.velocityY = -velocityY; //swim the opposite way.
             this.y = 1.1; //reset it to the edge of the floor.
+        }
+    }
+    
+    /**
+     * METHOD: Used to check that the String model that was provided is an accepted image type.
+     * 
+     * @param m     The model filepath that was provided on creation of the DisplayObject.
+     * 
+     * @throws InvalidImageFileException
+     *
+     * @return      A true boolean value if the instantiated model is valid.
+     */
+    public boolean validateModel(String m) throws InvalidImageFileException
+    {
+        //CHECK the model String is an accepted file type:
+        if(m.endsWith(".obj") || m.equals("sphere"))
+        {
+            return true;
+        }
+        //THROW an InvalidImageFileException if it isn't a valid type:
+        else
+        {
+            throw new InvalidImageFileException("The given Filepath does not present a model ending with .obj.");
+        }
+    }
+    
+    /**
+     * METHOD: Used to check that the String texture that was provided is an accepted image type.
+     * 
+     * @param t     The texture filepath that was provided on creation of the DisplayObject.
+     * 
+     * @throws InvalidImageFileException
+     * 
+     * @return      A true boolean value if the instantiated texture is valid.
+     */
+    public boolean validateTexture(String t) throws InvalidImageFileException
+    {
+        //CHECK the texture String is an accepted file type:
+        if(t.endsWith(".png"))
+        {
+            return true;
+        }
+        else if(t.endsWith(".jpg"))
+        {
+            return true;
+        }
+        //THROW an InvalidImageFileException if it isn't a valid type:
+        else
+        {     
+            throw new InvalidImageFileException("The given Filepath does not present a texture ending with .png or .jpg.");
         }
     }
     

@@ -28,9 +28,17 @@ public class UpdatableFactory implements IUpdatableFactory
      */
     public <T extends IUpdatable> IUpdatable create(Class<T> rqdClass) throws Exception
     {
-        // INSTANTIATE new IUpdatable, call it 'newObject':
-        IUpdatable newObject = rqdClass.newInstance();
-        
+        IUpdatable newObject = null;
+        try
+        {
+            // INSTANTIATE new IUpdatable, call it 'newObject':
+            newObject = rqdClass.newInstance();
+        }
+        catch(Exception e)
+        {
+            // PRINT the error message:
+            System.out.println(e.getMessage());
+        }
         // RETURN new IUpdatable:
         return newObject;
     }

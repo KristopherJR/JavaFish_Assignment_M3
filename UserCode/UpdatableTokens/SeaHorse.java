@@ -36,7 +36,7 @@ public class SeaHorse implements IUpdatable, IDisplayable
    public SeaHorse()
    {
        // INITIALIZE '_seaHorse' as a 'DisplayObject':
-       _seaHorse = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225); // SETS scale within client-brief range.
+       _seaHorse = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225, false); // SETS scale within client-brief range.
        // SET the '_seaHorse' objects orientation so it's the right way up:
        _seaHorse.orientation(0,270,0);
        

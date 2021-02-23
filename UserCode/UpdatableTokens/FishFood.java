@@ -27,7 +27,7 @@ public class FishFood implements IUpdatable, IDisplayable
     public FishFood()
     {
         // INITALISE '_fishFood' with appropriate parameters:
-        _fishFood = new DisplayObject(MODEL, TEXTURE, 0.15);
+        _fishFood = new DisplayObject(MODEL, TEXTURE, 0.15, false);
         // SET the orientation of the '_fishFood' so that it's the right way up:
         _fishFood.orientation(0,270,0);
         

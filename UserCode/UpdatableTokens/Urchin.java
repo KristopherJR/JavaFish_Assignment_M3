@@ -37,7 +37,7 @@ public class Urchin implements IUpdatable, IDisplayable
    public Urchin()
    {
        // INITIALIZE 'urchin' as a 'DisplayObject':
-       _urchin = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225); // SETS scale within client-brief range.
+       _urchin = new DisplayObject(MODEL, TEXTURE, Math.random() * (0.45 - 0.225) + 0.225, false); // SETS scale within client-brief range.
        // SET the '_seaHorse' objects orientation so it's the right way up:
        _urchin.orientation(0,270,0);
        
