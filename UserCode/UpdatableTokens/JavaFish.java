@@ -14,7 +14,7 @@ import java.util.List;
  * Represents a 'JavaFish'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 22-02-2021, 0.5
+ * @version 23-02-2021, 0.6
  */
 public class JavaFish implements IUpdatable, IDisplayable, IConsumer
 {
@@ -86,6 +86,24 @@ public class JavaFish implements IUpdatable, IDisplayable, IConsumer
    }
    
    /**
+    * METHOD: used to validate that the speed of this JavaFish has been assigned is within the correct range, if it isn't an OutOfBoundsException is thrown.
+    * 
+    * @throws OutOfBoundsException
+    * 
+    * @return      void 
+    */
+    
+   public void validateSpeed() throws OutOfBoundsException
+   {
+       // THROW an OutOfBoundsException if the VelocityX of the DisplayObject is out of the permitted range:
+       if((((DisplayObject)_javaFish).getVelocityX()) < 0.005 || (((DisplayObject)_javaFish).getVelocityX()) > 0.05)
+       {
+           throw new OutOfBoundsException("JavaFish are being assigned a VelocityX value outside of their specified range (0.005 - 0.05)");
+       }
+   }
+   
+   // ------------------------------ ACCESSORS ------------------------------ //
+   /**
     * METHOD: returns the self-contained DisplayObject's X co-ordinate.
     * 
     * @return   The self-contained DisplayObject's X co-ordinate.
@@ -107,10 +125,15 @@ public class JavaFish implements IUpdatable, IDisplayable, IConsumer
        return ((ILocation)_javaFish).getY();
    }
    
-   public void GenerateRandomSpeed()
+   /**
+    * METHOD: get the VelocityX of '_javaFish' and return it.
+    * 
+    * @return       The VelocityX of the '_javaFish' as a Double.
+    */
+   public Double getVelocityX()
    {
-       // GENERATE a random X velocity for the '_javaFish':
-       ((DisplayObject)_javaFish).setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
+       // GET the DisplayObject's VelocityX and return it:
+       return ((DisplayObject)_javaFish).getVelocityX();
    }
    
    /**
@@ -124,6 +147,18 @@ public class JavaFish implements IUpdatable, IDisplayable, IConsumer
        return _bubblePool;
    }
    
+   // ------------------------------ MUTATORS ------------------------------ //
+   /**
+    * METHOD: Generates a random VelocityX and VelocityY for the DisplayObject contained in JavaFish. The Speed is set between MIN_SPEED and MAX_SPEED.
+    * 
+    * @return void
+    */
+   public void GenerateRandomSpeed()
+   {
+       // GENERATE a random X velocity for the '_javaFish':
+       ((DisplayObject)_javaFish).setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
+   }
+
    // ------------------------------ IMPLEMENTATION OF IDisplayable ------------------------------ //
    /**
      * METHOD: Inject the IDisplayable by passing its contained DisplayObject into the reference to IWorld provided.

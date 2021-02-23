@@ -108,24 +108,61 @@ public class Bubble implements IUpdatable, IDisplayable
     
     // ------------------------------ MUTATORS ------------------------------ //
     /**
-     * METHOD: set the initial position of the Bubble in the aquarium - method from Marc Price, edited by Kristoper Randle.
+     * METHOD: set the position of the DisplayObject contained in this class to the provided x and y. The Bubble must be placed in the visible area of the aquarium
+     * or an OutOfBoundsException will be thrown.
      * 
-     * @param  x    the rqd position along the x axis
-     * @param  y    the rqd position along the y axis
+     * @param  x    the rqd position along the x axis, must be between 0.0 - 8.0
+     * @param  y    the rqd position along the y axis, must be between 0.0 - 7.0
      * 
+     * @throws OutOfBoundsException
      * @return      void 
      */
-    public void setPosition(double x, double y)
+    public void setPosition(double x, double y) throws OutOfBoundsException
     {
-        // SET the position of this Bubble to the x,y provided, cast to its ILocation interface:
-        ((ILocation)_bubble).setX(x);
-        ((ILocation)_bubble).setY(y);
+        // IF the Bubble X is being set outside of the visible area of the aquarium:
+        if((x < 0.0) || (x > 8.0))
+        {
+            // THROW a new OutOfBoundsException with a message:
+            throw new OutOfBoundsException("A Bubble must be placed in the visible area of the aquarium.");
+        }
+        else
+        {
+            // SET the position of this Bubble to the x provided, cast to its ILocation interface:
+            ((ILocation)_bubble).setX(x);
+        }
+        // IF the Bubble Y is being set outside of the visible area of the aquarium:
+        if((y < 0.0) || (y > 7.0))
+        {
+            // THROW a new OutOfBoundsException with a message:
+            throw new OutOfBoundsException("A Bubble must be placed in the visible area of the aquarium.");
+        }
+        else
+        {
+            // SET the position of this Bubble to the y provided, cast to its ILocation interface:
+            ((ILocation)_bubble).setY(y);
+        }
     }
     
-    public void setScale(double scale)
+    /**
+     * METHOD: SET the scale of the contained DisplayObject to the parameter provided. Scale must be between 0.025 - 0.1125.
+     * 
+     * @throws OutOfBoundsException
+     * @return void
+     */
+    
+    public void setScale(double scale) throws OutOfBoundsException
     {
-        // SET the scale of '_bubble' to the provided parameter:
-        ((DisplayObject)_bubble).setScale(scale);
+        // IF the provided scale is out of the allowed range:
+        if((scale < 0.025) || (scale > 0.1125))
+        {
+            // THROW a new OutOfBoundsException with a message:
+            throw new OutOfBoundsException("A Bubbles scale should be between 0.025 - 0.1125.");
+        }
+        else
+        {
+            // SET the scale of '_bubble' to the provided parameter:
+            ((DisplayObject)_bubble).setScale(scale);
+        }
     }
     
     /**

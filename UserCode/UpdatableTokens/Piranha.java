@@ -15,7 +15,7 @@ import java.util.Random;
  * Represents a 'Piranha'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 22-02-2021, 0.5
+ * @version 23-02-2021, 0.6
  */
 public class Piranha implements IUpdatable, IDisplayable
 {
@@ -102,6 +102,24 @@ public class Piranha implements IUpdatable, IDisplayable
    }
    
    /**
+    * METHOD: used to validate that the speed of this Piranha has been assigned is within the correct range, if it isn't an OutOfBoundsException is thrown.
+    * 
+    * @throws OutOfBoundsException
+    * 
+    * @return      void 
+    */
+    
+   public void validateSpeed() throws OutOfBoundsException
+   {
+       // THROW an OutOfBoundsException if the VelocityX of the DisplayObject is out of the permitted range:
+       if((((DisplayObject)_piranha).getVelocityX()) < 0.005 || (((DisplayObject)_piranha).getVelocityX()) > 0.05)
+       {
+           throw new OutOfBoundsException("Piranhas are being assigned a VelocityX value outside of their specified range (0.005 - 0.05)");
+       }
+   }
+   
+   // ------------------------------ ACCESSORS ------------------------------ //
+   /**
     * METHOD: returns the self-contained DisplayObject's X co-ordinate.
     * 
     * @return   The self-contained DisplayObject's X co-ordinate.
@@ -123,12 +141,6 @@ public class Piranha implements IUpdatable, IDisplayable
        return ((ILocation)_piranha).getY();
    }
     
-   public void GenerateRandomSpeed()
-   {
-       // GENERATE a random X velocity for the '_piranha':
-       ((DisplayObject)_piranha).setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
-   }
-   
    /**
     * METHOD: returns a reference to this Piranha's Bubble Pool.
     * 
@@ -138,6 +150,29 @@ public class Piranha implements IUpdatable, IDisplayable
    {
        // RETURN the '_bubblePool':
        return _bubblePool;
+   }
+   
+   /**
+    * METHOD: get the VelocityX of '_piranha' and return it.
+    * 
+    * @return       The VelocityX of the '_piranha' as a Double.
+    */
+   public Double getVelocityX()
+   {
+       // GET the DisplayObject's VelocityX and return it:
+       return ((DisplayObject)_piranha).getVelocityX();
+   }
+   
+   // ------------------------------ MUTATORS ------------------------------ //
+   /**
+    * METHOD: Generates a random VelocityX and VelocityY for the DisplayObject contained in Piranha. The Speed is set between MIN_SPEED and MAX_SPEED.
+    * 
+    * @return void
+    */
+   public void GenerateRandomSpeed()
+   {
+       // GENERATE a random X velocity for the '_piranha':
+       ((DisplayObject)_piranha).setVelocityX(Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED);
    }
     
    // ------------------------------ IMPLEMENTATION OF IDisplayable ------------------------------ //

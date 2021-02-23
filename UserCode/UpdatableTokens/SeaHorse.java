@@ -12,7 +12,7 @@ import java.util.List;
  * Represents a 'SeaHorse'. This is an object that can be placed in the aquarium and swim around.
  * 
  * @author Kristopher Randle 
- * @version 22-02-2021, 0.4
+ * @version 23-02-2021, 0.5
  */
 public class SeaHorse implements IUpdatable, IDisplayable
 {
@@ -46,7 +46,58 @@ public class SeaHorse implements IUpdatable, IDisplayable
        // GENERATE a random speed for this object between 0.005 - 0.05:
        this.GenerateRandomSpeed();
    }
+   
+   /**
+    * METHOD: used to validate that the speed of this SeaHorse has been assigned is within the correct range, if it isn't an OutOfBoundsException is thrown.
+    * 
+    * @throws OutOfBoundsException
+    * 
+    * @return      void 
+    */
     
+   public void validateSpeed() throws OutOfBoundsException
+   {
+       // THROW an OutOfBoundsException if the VelocityX of the DisplayObject is out of the permitted range:
+       if((((DisplayObject)_seaHorse).getVelocityX()) < 0.005 || (((DisplayObject)_seaHorse).getVelocityX()) > 0.05)
+       {
+           throw new OutOfBoundsException("SeaHorses are being assigned a VelocityX value outside of their specified range (0.005 - 0.05)");
+       }
+       // THROW an OutOfBoundsException if the VelocityY of the DisplayObject is out of the permitted range:
+       if((((DisplayObject)_seaHorse).getVelocityY()) < 0.005 || (((DisplayObject)_seaHorse).getVelocityY()) > 0.05)
+       {
+           throw new OutOfBoundsException("SeaHorses are being assigned a VelocityY value outside of their specified range (0.005 - 0.05)");
+       }
+   }
+   
+   // ------------------------------ ACCESSORS ------------------------------ //
+   /**
+    * METHOD: get the VelocityX of '_seaHorse' and return it.
+    * 
+    * @return       The VelocityX of the '_seaHorse' as a Double.
+    */
+   public Double getVelocityX()
+   {
+       // GET the DisplayObject's VelocityX and return it:
+       return ((DisplayObject)_seaHorse).getVelocityX();
+   }
+   
+   /**
+    * METHOD: get the VelocityY of '_seaHorse' and return it.
+    * 
+    * @return       The VelocityY of the '_seaHorse' as a Double.
+    */
+   public Double getVelocityY()
+   {
+       // GET the DisplayObject's VelocityY and return it:
+       return ((DisplayObject)_seaHorse).getVelocityY();
+   }
+   
+   // ------------------------------ MUTATORS ------------------------------ //
+   /**
+    * METHOD: Generates a random VelocityX and VelocityY for the DisplayObject contained in SeaHorse. The Speed is set between MIN_SPEED and MAX_SPEED.
+    * 
+    * @return void
+    */
    public void GenerateRandomSpeed()
    {
        // GENERATE a random X velocity for the '_seaHorse':

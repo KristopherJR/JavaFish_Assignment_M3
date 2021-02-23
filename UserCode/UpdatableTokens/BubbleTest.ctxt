@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BubbleTest()
+comment0.text=\r\n\ Default\ constructor\ for\ test\ class\ BubbleTest\r\n
+comment1.params=
+comment1.target=void\ positionTest1()
+comment1.text=\r\n\ TEST\ CONDITION\:\ CHECK\ that\ a\ Bubble\ can't\ be\ positioned\ outside\ of\ the\ aquarium.\r\n\ \r\n\ Tests\:\r\n\ positionTest1\:\ Initialise\ a\ Bubble,\ then\ check\ that\ you\ can\ set\ it's\ position\ to\ a\ valid\ location\ in\ the\ aquarium\ WITHOUT\ an\ exception\ being\ thrown.\ Test\ fails\ if\ OutOfBoundsException\ gets\ thrown.\r\n\ positionTest2\:\ Initialise\ a\ Bubble,\ then\ check\ that\ you\ can't\ set\ it's\ position\ outside\ the\ visible\ area\ of\ the\ aquarium.\ Test\ passes\ if\ OutOfBoundsException\ is\ thrown.\r\n
+comment2.params=
+comment2.target=void\ positionTest2()
+comment3.params=
+comment3.target=void\ scaleTest1()
+comment3.text=\r\n\ TEST\ CONDITION\:\ CHECK\ that\ a\ Bubble\ can't\ have\ its\ scale\ set\ outside\ of\ range\ 0.025\ -\ 0.1125.\r\n\ \r\n\ Tests\:\r\n\ scaleTest1\:\ Initialise\ a\ Bubble,\ then\ check\ that\ you\ can\ set\ it's\ scale\ to\ a\ valid\ size\ WITHOUT\ an\ exception\ being\ thrown.\ Test\ fails\ if\ OutOfBoundsException\ gets\ thrown.\r\n\ scaleTest2\:\ Initialise\ a\ Bubble,\ then\ check\ that\ you\ can't\ set\ it's\ scale\ outside\ of\ the\ allowed\ range.\ Test\ passes\ if\ OutOfBoundsException\ is\ thrown.\r\n
+comment4.params=
+comment4.target=void\ scaleTest2()
+comment5.params=
+comment5.target=void\ setUp()
+comment5.text=\r\n\ Sets\ up\ the\ test\ fixture.\r\n\r\n\ Called\ before\ every\ test\ case\ method.\r\n
+comment6.params=
+comment6.target=void\ tearDown()
+comment6.text=\r\n\ Tears\ down\ the\ test\ fixture.\r\n\r\n\ Called\ after\ every\ test\ case\ method.\r\n
+numComments=7
