@@ -296,34 +296,70 @@ public class DisplayObject implements IDisplayObject, IUpdatable, ILocation
     }
     
     // -------------------------- ACCESSORS ----------------------
+    /**
+     * METHOD: returns the scale of the DisplayObject as a double.
+     * 
+     * @return      The scale of this DisplayObject as a double.
+     */
     public double getScale()
     {
+        // GET the scale and return it:
         return scale;
     }
     
+    /**
+     * METHOD: returns the velocityX of the DisplayObject as a double.
+     * 
+     * @return      The velocityX of the DisplayObject as a double.
+     */
     public double getVelocityX()
     {
+        // GET the velocityX and return it:
         return velocityX;
     }
     
+    /**
+     * METHOD: returns the velocityY of the DisplayObject as a double.
+     * 
+     * @return      The velocityY of the DisplayObject as a double.
+     */
     public double getVelocityY()
     {
+        // GET the velocityY and return it:
         return velocityY;
     }
     
     // -------------------------- MUTATORS ----------------------
+    /**
+     * METHOD: sets the scale to the provided parameter.
+     * 
+     * @param scale     The new scale of the DisplayObject.
+     */
     public void setScale(double scale)
     {
+        // SET the scale to the provided parameter:
         this.scale = scale;
     }
     
+    /**
+     * METHOD: sets the velocityX to the provided parameter.
+     * 
+     * @param vx     The new velocityX of the DisplayObject.
+     */
     public void setVelocityX(double vx)
     {
+        // SET the velocityX to the provided parameter:
         this.velocityX = vx;
     }
     
+    /**
+     * METHOD: sets the velocityY to the provided parameter.
+     * 
+     * @param vy     The new velocityY of the DisplayObject.
+     */
     public void setVelocityY(double vy)
     {
+        // SET the velocityY to the provided parameter:
         this.velocityY = vy;
     }
 }

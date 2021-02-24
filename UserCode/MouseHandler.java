@@ -36,6 +36,7 @@ public class MouseHandler implements IInputPublisher, IUpdatable
      * METHOD: initialise the handler by giving it a reference to the input capture source.
      * 
      * @param inputCapture the input capture source (normally via Env3D)
+     * @return void
      */
     public void Initialise(IInput inputCapture)
     {
@@ -47,6 +48,7 @@ public class MouseHandler implements IInputPublisher, IUpdatable
      * METHOD: Subscribe a new listener for input events.
      * 
      * @param l     a reference to the listener that is being subscribed
+     * @return void
      */
     public void subscribe(IInputListener l)
     {
@@ -58,6 +60,7 @@ public class MouseHandler implements IInputPublisher, IUpdatable
      * METHOD: unsubscribe a listener.
      * 
      * @param l     a reference to the listener that is being unsubscribed
+     * @return void
      */
     public void unsubscribe(IInputListener l)
     {
@@ -69,6 +72,8 @@ public class MouseHandler implements IInputPublisher, IUpdatable
     
     /**
      * METHOD: update the Mouse state
+     * 
+     * @return void
      */
     public void update()
     {

@@ -47,27 +47,36 @@ Generating D:\Documents\Programming\JavaFish Milestone 3\doc\Exceptions\InvalidI
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\Exceptions\OutOfBoundsException.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\Exceptions\WorldDoesNotExistException.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\MouseHandler.html...
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\MouseHandler.java:41: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\MouseHandler.java:53: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\MouseHandler.java:65: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\MouseHandler.java:78: warning - @return tag cannot be used in method with void return type.
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\Simulation.html...
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:218: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:172: warning - Tag @author cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:172: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:149: warning - Tag @author cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:149: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:105: warning - @Author is an unknown tag -- same as a known tag except for case.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:222: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:175: warning - Tag @author cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:175: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:151: warning - Tag @author cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:151: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:354: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:107: warning - Tag @author cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:107: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\Simulation.java:367: warning - @return tag cannot be used in method with void return type.
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\SoundEffect.html...
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\SoundEffect.java:53: warning - @return tag cannot be used in method with void return type.
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableFactory.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\Bubble.html...
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:53: warning - @return tag cannot be used in method with void return type.
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:78: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:174: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:186: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:176: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:188: warning - @return tag cannot be used in method with void return type.
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:120: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:153: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:226: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:155: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Bubble.java:228: warning - @return tag cannot be used in method with void return type.
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\BubbleTest.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\FishFood.html...
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\FishFood.java:86: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\FishFood.java:50: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\FishFood.java:113: warning - @return tag cannot be used in method with void return type.
+Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\FishFoodTest.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\JavaFish.html...
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\JavaFish.java:44: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\JavaFish.java:156: warning - @return tag cannot be used in method with void return type.
@@ -86,10 +95,9 @@ D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\SeaHorse.
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\SeaHorse.java:58: warning - @return tag cannot be used in method with void return type.
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\SeaHorseTest.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\Urchin.html...
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Urchin.java:37: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Urchin.java:37: warning - @param argument "s" is not a parameter name.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Urchin.java:86: warning - @return tag cannot be used in method with void return type.
-D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Urchin.java:59: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Urchin.java:36: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Urchin.java:85: warning - @return tag cannot be used in method with void return type.
+D:\Documents\Programming\JavaFish Milestone 3\UserCode\UpdatableTokens\Urchin.java:58: warning - @return tag cannot be used in method with void return type.
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UpdatableTokens\UrchinTest.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\UserCode\UserInterfaces\IConsumer.html...
 D:\Documents\Programming\JavaFish Milestone 3\UserCode\UserInterfaces\IConsumer.java:18: warning - @return tag cannot be used in method with void return type.
@@ -145,4 +153,4 @@ Generating D:\Documents\Programming\JavaFish Milestone 3\doc\index.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\overview-summary.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\help-doc.html...
 Generating D:\Documents\Programming\JavaFish Milestone 3\doc\stylesheet.css...
-40 warnings
+47 warnings

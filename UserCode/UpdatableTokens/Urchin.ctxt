@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Urchin()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Urchin.\r\n\ \r\n\ @param\ s\ \ \ \ \ the\ scale\ of\ the\ Urchin.\r\n\ @return\ \ \ \ \ \ void\r\n
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Urchin.\r\n\ \r\n\ @return\ \ \ \ \ \ void\r\n
 comment1.params=
 comment1.target=void\ validateSpeed()
-comment1.text=\r\n\ METHOD\:\ used\ to\ validate\ that\ the\ speed\ of\ this\ Urchin\ has\ been\ assigned\ is\ within\ the\ correct\ range,\ if\ it\ isn't\ an\ OutOfBoundsException\ is\ thrown.\r\n\ \r\n\ @throws\ OutOfBoundsException\r\n\ \r\n\ @return\ \ \ \ \ \ void\ \r\n
+comment1.text=\r\n\ METHOD\:\ used\ to\ validate\ that\ the\ speed\ of\ this\ Urchin\ has\ been\ assigned\ is\ within\ the\ correct\ range,\ if\ it\ isn't\ an\ OutOfBoundsException\ is\ thrown.\r\n\ \r\n\ @throws\ OutOfBoundsException\r\n\ \r\n\ @return\ void\ \r\n
 comment2.params=
 comment2.target=java.lang.Double\ getVelocityX()
 comment2.text=\r\n\ METHOD\:\ get\ the\ VelocityX\ of\ '_urchin'\ and\ return\ it.\r\n\ \r\n\ @return\ \ \ \ \ \ \ The\ VelocityX\ of\ the\ '_urchin'\ as\ a\ Double.\r\n

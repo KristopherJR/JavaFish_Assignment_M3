@@ -31,7 +31,6 @@ public class Urchin implements IUpdatable, IDisplayable
    /**
     * Constructor for objects of class Urchin.
     * 
-    * @param s     the scale of the Urchin.
     * @return      void
     */
    public Urchin()
@@ -53,7 +52,7 @@ public class Urchin implements IUpdatable, IDisplayable
     * 
     * @throws OutOfBoundsException
     * 
-    * @return      void 
+    * @return void 
     */
     
    public void validateSpeed() throws OutOfBoundsException

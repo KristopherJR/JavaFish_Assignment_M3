@@ -37,16 +37,43 @@ public class FishFood implements IUpdatable, IDisplayable
     
     /**
      * METHOD: Set the DisplayObjects position contained in this class by calling it's ILocation methods.
-     * Pass in the provided x,y,z values.
+     * Pass in the provided x,y,z values. An OutOfBoundsException should be thrown if the FishFood is being placed outside the visible area of the aquarium.
+     * 
+     * 
+     * @param x     the new x co-ordinate for the FishFood
+     * @param y     the new y co-ordinate for the FishFood
+     * @param z     the new z co-ordinate for the FishFood
+     * 
+     * @throws OutOfBoundsException
+     * @return void
      */
-    public void setDisplayObjectPosition(double x, double y, double z)
+    public void setDisplayObjectPosition(double x, double y, double z) throws OutOfBoundsException
     {
-        // CAST _fishFood to its ILocation interface and pass in the x,y,z values provided:
-        ((ILocation)_fishFood).setX(x);
-        ((ILocation)_fishFood).setY(y);
+        // IF the FishFood X is being set outside of the visible area of the aquarium:
+        if((x < 0.0) || (x > 8.0))
+        {
+            // THROW a new OutOfBoundsException with a message:
+            throw new OutOfBoundsException("FishFood must be placed in the visible area of the aquarium.");
+        }
+        else
+        {
+            // SET the position of this FishFood to the x provided, cast to its ILocation interface:
+            ((ILocation)_fishFood).setX(x);
+        }
+        // IF the FishFood Y is being set outside of the visible area of the aquarium:
+        if((y < 0.0) || (y > 7.0))
+        {
+            // THROW a new OutOfBoundsException with a message:
+            throw new OutOfBoundsException("FishFood must be placed in the visible area of the aquarium.");
+        }
+        else
+        {
+            // SET the position of this FishFood to the y provided, cast to its ILocation interface:
+            ((ILocation)_fishFood).setY(y);
+        }
+        // CAST _fishFood to its ILocation interface and pass in the z value provided:
         ((ILocation)_fishFood).setZ(z);
     }
-    
     
     // ------------------------------ IMPLEMENTATION OF IDisplayable ------------------------------ //
     /**

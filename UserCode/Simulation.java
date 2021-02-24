@@ -100,7 +100,9 @@ public class Simulation implements IInputListener
     /**
      * METHOD: This method will populate the '_entities' list so that they can be added to the '_world' later.
      * 
-     * @Author Kristopher Randle
+     * @author Kristopher Randle
+     * 
+     * @return void
      */
     public void populate()
     {
@@ -167,6 +169,7 @@ public class Simulation implements IInputListener
      * METHOD: Spawns a new 'FishFood' object at the mouse cursors location when the left mouse button is clicked.
      * 
      * @author Kristopher Randle
+     * @throws WorldDoesNotExistException
      * @return void
      */
     public void createFood() throws WorldDoesNotExistException
@@ -213,6 +216,7 @@ public class Simulation implements IInputListener
     /**
      * METHOD: is called on each simulation pass. JavaFish have a 1 in 2000 chance of spawning a Bubble at their mouth. Piranha have a 1 in 900 chance of spawning a bubble. 
      * 
+     * @throws WorldDoesNotExistException
      * @return void
      */
     public void createBubbles() throws WorldDoesNotExistException
@@ -339,12 +343,13 @@ public class Simulation implements IInputListener
     
     // ------------------------------ IMPLEMENTATION OF IInputListener ------------------------------ //
     /**
-     * Method to handle an input event.
+     * METHOD: to handle an input event.
      * 
      * Interface author: Marc Price.
      * Method from: Chris Blythe, week 17 live coding video on BlackBoard.
      * 
      * @param data an array of integers containing the input data.
+     * @return void
      */
     public void onInput(int ...data)
     {
@@ -357,6 +362,7 @@ public class Simulation implements IInputListener
     /**
      * METHOD: Run the simulation loop.  User presses escape to exit.
      *
+     * @return void
      */
     public void run()
     {

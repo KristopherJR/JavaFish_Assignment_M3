@@ -48,7 +48,7 @@ public class Bubble implements IUpdatable, IDisplayable
      * METHOD: Initalises and populates the List 'soundEffects' with an appropriate selection of .wav files.
      *         Any 'Bubble' can play any one of these 'SoundEffect's at a time.
      * 
-     * @return      void 
+     * @return void 
      */
     public void createSoundEffects()
     {
@@ -111,7 +111,7 @@ public class Bubble implements IUpdatable, IDisplayable
      * METHOD: set the position of the DisplayObject contained in this class to the provided x and y. The Bubble must be placed in the visible area of the aquarium
      * or an OutOfBoundsException will be thrown.
      * 
-     * @param  x    the rqd position along the x axis, must be between 0.0 - 8.0
+     * @param  x    the rqd position along the x axis, must be between 0.0 - 9.0
      * @param  y    the rqd position along the y axis, must be between 0.0 - 7.0
      * 
      * @throws OutOfBoundsException
@@ -120,10 +120,10 @@ public class Bubble implements IUpdatable, IDisplayable
     public void setPosition(double x, double y) throws OutOfBoundsException
     {
         // IF the Bubble X is being set outside of the visible area of the aquarium:
-        if((x < 0.0) || (x > 8.0))
+        if((x < 0.0) || (x > 9.0))
         {
             // THROW a new OutOfBoundsException with a message:
-            throw new OutOfBoundsException("A Bubble must be placed in the visible area of the aquarium.");
+            throw new OutOfBoundsException("A Bubble must be placed in the visible area of the aquarium. X-Axis OutOfBounds.");
         }
         else
         {
@@ -134,7 +134,7 @@ public class Bubble implements IUpdatable, IDisplayable
         if((y < 0.0) || (y > 7.0))
         {
             // THROW a new OutOfBoundsException with a message:
-            throw new OutOfBoundsException("A Bubble must be placed in the visible area of the aquarium.");
+            throw new OutOfBoundsException("A Bubble must be placed in the visible area of the aquarium. Y-Axis OutOfBounds.");
         }
         else
         {
@@ -145,6 +145,8 @@ public class Bubble implements IUpdatable, IDisplayable
     
     /**
      * METHOD: SET the scale of the contained DisplayObject to the parameter provided. Scale must be between 0.025 - 0.1125.
+     * 
+     * @param scale     The new scale of the Bubble as a double.
      * 
      * @throws OutOfBoundsException
      * @return void
@@ -236,7 +238,7 @@ public class Bubble implements IUpdatable, IDisplayable
             // MAKE a 'pop' sound:
             this.makeSound();
             // WRITE to the console to signifying popping (de-bugging usage):
-            System.out.println("THIS BOI POPPED!");
+            System.out.println("Bubble Succesfully returned to Object Pool.");
             // FLAG it for deletion:
             _flagDeletion = true;
         }
